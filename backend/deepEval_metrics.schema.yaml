@@ -1,0 +1,759 @@
+# ===============================================================================================================================================
+# File: deepEval_metrics.schema.yaml
+# Description:
+#   Canonical schema defining evaluation metric categories, metric definitions,
+#   required test-case fields, constructor parameters, threshold semantics,
+#   and constraints for DeepEval-based AI/LLM evaluation pipelines.
+#
+# Author:
+#   Anmol Kumar
+#
+# Version:
+#   1.0.0
+#
+# Last Updated:
+#   2025-12-18
+#
+# Source References:
+#   - DeepEval: The Open-Source LLM Evaluation Framework (deepeval.com)
+#
+# Usage Notes:
+#   - All metrics explicitly list required test-case fields and constructor
+#     parameters. Optional parameters are included for completeness.
+#   - Threshold semantics are defined per metric to avoid ambiguity in pass/fail
+#     interpretation.
+#   - Constraints capture hard requirements (e.g., image count) that must be
+#     enforced prior to evaluation.
+#   - This file is format-agnostic and may be validated or transpiled into
+#     JSON Schema, OpenAPI, or internal config formats.
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+schema_version: 1.0.0
+library:
+  name: deepeval
+  purpose: Metric registry schema for DeepEval eval types, metrics, and required arguments.
+  source_of_truth: https://deepeval.com/docs/metrics-introduction
+
+conventions:
+  required_arguments_definition:
+    required_test_case_fields: Fields required on the test case object passed to metric.measure(...) / evaluate(...).
+    required_metric_init_params: Constructor parameters required to instantiate the metric.
+    optional_metric_init_params: Optional constructor parameters commonly used in docs/examples.
+  threshold_semantics:
+    minimum_is_passing: Pass when score >= threshold (higher is better).
+    maximum_is_passing: Pass when score <= threshold (lower is better).
+  notes:
+    - "Some metrics require additional structured sub-fields inside turns (e.g., tool calls) depending on usage."
+    - "Constraints describe hard input/output requirements (e.g., images count)."
+
+test_case_types:
+  LLMTestCase:
+    required_fields: [input, actual_output]
+    optional_fields:
+      - expected_output
+      - context
+      - retrieval_context
+      - tools_called
+      - intermediate_steps
+      - additional_metadata
+      # Multimodal (when input/output include images)
+      - image_inputs
+      - image_outputs
+      # MCP (single-turn)
+      - mcp_servers
+      - mcp_tools_called
+      - mcp_resources_called
+      - mcp_prompts_called
+
+  ConversationalTestCase:
+    required_fields: [turns]
+    optional_fields:
+      - chatbot_role
+      - expected_outcome
+      - tools_called
+      - additional_metadata
+      # MCP (multi-turn)
+      - mcp_servers
+
+  Turn:
+    required_fields: [role, content]
+    optional_fields:
+      - retrieval_context
+      - tools_called
+      - additional_metadata
+      # MCP primitives (only when MCP interaction occurs in that turn)
+      - mcp_tools_called
+      - mcp_resources_called
+      - mcp_prompts_called
+
+  ArenaTestCase:
+    required_fields: [input, model_a_output, model_b_output]
+    optional_fields:
+      - context
+      - additional_metadata
+
+eval_types:
+
+  Custom:
+    description: Custom / programmable evaluation patterns (LLM-as-a-judge, DAGs, DIY, arena).
+    metrics:
+      - metric_name: G-Eval
+        metric_id: custom.g_eval
+        metric_class: GEval
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params:
+          - name
+          - evaluation_params
+        optional_metric_init_params:
+          - criteria
+          - evaluation_steps
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "criteria XOR evaluation_steps (docs pattern)."
+
+      - metric_name: DAG
+        metric_id: custom.dag
+        metric_class: DAGMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params:
+          - name
+          - nodes
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Conversational G-Eval
+        metric_id: custom.conversational_g_eval
+        metric_class: ConversationalGEval
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params:
+          - name
+          - evaluation_params
+        optional_metric_init_params:
+          - criteria
+          - evaluation_steps
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "criteria XOR evaluation_steps (docs pattern)."
+
+      - metric_name: Conversational DAG
+        metric_id: custom.conversational_dag
+        metric_class: ConversationalDAGMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params:
+          - name
+          - nodes
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Arena G-Eval
+        metric_id: custom.arena_g_eval
+        metric_class: ArenaGEval
+        test_case_type: ArenaTestCase
+        required_test_case_fields: [input, model_a_output, model_b_output]
+        required_metric_init_params:
+          - name
+          - evaluation_params
+        optional_metric_init_params:
+          - criteria
+          - evaluation_steps
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Do It Yourself
+        metric_id: custom.do_it_yourself
+        metric_class: DIYMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: [name]
+        optional_metric_init_params:
+          - rubric
+          - threshold
+        threshold_semantics: minimum_is_passing
+
+  RAG:
+    description: Retrieval-Augmented Generation evaluation metrics.
+    metrics:
+      - metric_name: Answer Relevancy
+        metric_id: rag.answer_relevancy
+        metric_class: AnswerRelevancyMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - embeddings
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Faithfulness
+        metric_id: rag.faithfulness
+        metric_class: FaithfulnessMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [actual_output, retrieval_context]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Contextual Precision
+        metric_id: rag.contextual_precision
+        metric_class: ContextualPrecisionMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, retrieval_context]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - embeddings
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Contextual Recall
+        metric_id: rag.contextual_recall
+        metric_class: ContextualRecallMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [expected_output, retrieval_context]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - embeddings
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Contextual Relevancy
+        metric_id: rag.contextual_relevancy
+        metric_class: ContextualRelevancyMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, retrieval_context]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - embeddings
+        threshold_semantics: minimum_is_passing
+
+  Agentic:
+    description: Agent evaluation metrics (tool use, planning, step quality).
+    metrics:
+      - metric_name: Task Completion
+        metric_id: agent.task_completion
+        metric_class: TaskCompletionMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Tool Correctness
+        metric_id: agent.tool_correctness
+        metric_class: ToolCorrectnessMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns, tools_called]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Argument Correctness
+        metric_id: agent.argument_correctness
+        metric_class: ArgumentCorrectnessMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns, tools_called]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Step Efficiency
+        metric_id: agent.step_efficiency
+        metric_class: StepEfficiencyMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Plan Adherence
+        metric_id: agent.plan_adherence
+        metric_class: PlanAdherenceMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Plan Quality
+        metric_id: agent.plan_quality
+        metric_class: PlanQualityMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+  Multi-Turn:
+    description: Conversational / multi-turn evaluation metrics (chatbots and conversational agents).
+    metrics:
+      - metric_name: Turn Relevancy
+        metric_id: multiturn.turn_relevancy
+        metric_class: TurnRelevancyMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Role Adherence
+        metric_id: multiturn.role_adherence
+        metric_class: RoleAdherenceMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns, chatbot_role]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Knowledge Retention
+        metric_id: multiturn.knowledge_retention
+        metric_class: KnowledgeRetentionMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Conversation Completeness
+        metric_id: multiturn.conversation_completeness
+        metric_class: ConversationCompletenessMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Goal Accuracy
+        metric_id: multiturn.goal_accuracy
+        metric_class: GoalAccuracyMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Tool Use
+        metric_id: multiturn.tool_use
+        metric_class: ToolUseMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: [available_tools]
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "available_tools is required at metric init (docs)."
+
+      - metric_name: Topic Adherence
+        metric_id: multiturn.topic_adherence
+        metric_class: TopicAdherenceMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: [relevant_topics]
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "relevant_topics is required at metric init (docs)."
+
+      - metric_name: Turn Faithfulness
+        metric_id: multiturn.turn_faithfulness
+        metric_class: TurnFaithfulnessMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "Per docs, turns must include retrieval_context for faithfulness evaluation in practice."
+
+      - metric_name: Turn Contextual Precision
+        metric_id: multiturn.turn_contextual_precision
+        metric_class: TurnContextualPrecisionMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns, expected_outcome]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "Turns must include retrieval_context for contextual metrics."
+
+      - metric_name: Turn Contextual Recall
+        metric_id: multiturn.turn_contextual_recall
+        metric_class: TurnContextualRecallMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns, expected_outcome]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "Turns must include retrieval_context for contextual metrics."
+
+      - metric_name: Turn Contextual Relevancy
+        metric_id: multiturn.turn_contextual_relevancy
+        metric_class: TurnContextualRelevancyMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "Turns must include retrieval_context for contextual metrics."
+
+  MCP:
+    description: Model Context Protocol evaluation metrics.
+    metrics:
+      - metric_name: MCP-Use
+        metric_id: mcp.mcp_use
+        metric_class: MCPUseMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output, mcp_servers]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+        conditional_fields:
+          - mcp_tools_called
+          - mcp_resources_called
+          - mcp_prompts_called
+
+      - metric_name: Multi-Turn MCP-Use
+        metric_id: mcp.multi_turn_mcp_use
+        metric_class: MultiTurnMCPUseMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns, mcp_servers]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+        conditional_fields:
+          - mcp_tools_called
+          - mcp_resources_called
+          - mcp_prompts_called
+
+      - metric_name: MCP Task Completion
+        metric_id: mcp.mcp_task_completion
+        metric_class: MCPTaskCompletionMetric
+        test_case_type: ConversationalTestCase
+        required_test_case_fields: [turns, mcp_servers]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: minimum_is_passing
+        conditional_fields:
+          - mcp_tools_called
+          - mcp_resources_called
+          - mcp_prompts_called
+
+  Safety:
+    description: Safety and policy evaluation metrics.
+    metrics:
+      - metric_name: Bias
+        metric_id: safety.bias
+        metric_class: BiasMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: maximum_is_passing
+
+      - metric_name: Toxicity
+        metric_id: safety.toxicity
+        metric_class: ToxicityMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+        threshold_semantics: maximum_is_passing
+
+      - metric_name: Non-Advice
+        metric_id: safety.non_advice
+        metric_class: NonAdviceMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: [advice_types]
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Misuse
+        metric_id: safety.misuse
+        metric_class: MisuseMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: [domain]
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: PII Leakage
+        metric_id: safety.pii_leakage
+        metric_class: PIILeakageMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Role Violation
+        metric_id: safety.role_violation
+        metric_class: RoleViolationMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: [role]
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+        threshold_semantics: minimum_is_passing
+
+  Non-LLM:
+    description: Deterministic / non-judge metrics.
+    metrics:
+      - metric_name: Exact Match
+        metric_id: non_llm.exact_match
+        metric_class: ExactMatchMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output, expected_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - verbose_mode
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Pattern Match
+        metric_id: non_llm.pattern_match
+        metric_class: PatternMatchMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: [pattern]
+        optional_metric_init_params:
+          - threshold
+          - verbose_mode
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: JSON Correctness
+        metric_id: non_llm.json_correctness
+        metric_class: JsonCorrectnessMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: [expected_schema]
+        optional_metric_init_params:
+          - model
+          - include_reason
+          - verbose_mode
+          - threshold
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "model is optional and used for generating reason when include_reason=True (docs)."
+
+  Images:
+    description: Multimodal / image evaluation metrics.
+    metrics:
+      - metric_name: Image Coherence
+        metric_id: images.image_coherence
+        metric_class: ImageCoherenceMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+          - max_context_size
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Image Helpfulness
+        metric_id: images.image_helpfulness
+        metric_class: ImageHelpfulnessMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+          - max_context_size
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Image Reference
+        metric_id: images.image_reference
+        metric_class: ImageReferenceMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+          - max_context_size
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Text to Image
+        metric_id: images.text_to_image
+        metric_class: TextToImageMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+          - max_context_size
+        threshold_semantics: minimum_is_passing
+        constraints:
+          - "input must contain exactly 0 images"
+          - "actual_output must contain exactly 1 image"
+
+      - metric_name: Image Editing
+        metric_id: images.image_editing
+        metric_class: ImageEditingMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+          - max_context_size
+        threshold_semantics: minimum_is_passing
+        constraints:
+          - "input must contain exactly 1 image"
+          - "actual_output must contain exactly 1 image"
+
+  Others:
+    description: Miscellaneous metrics (alignment, summarization, hallucination, meta/aggregate).
+    metrics:
+      - metric_name: Summarization
+        metric_id: others.summarization
+        metric_class: SummarizationMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - assessment_questions
+          - n
+          - truths_extraction_limit
+          - model
+          - threshold
+          - include_reason
+          - strict_mode
+          - async_mode
+          - verbose_mode
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "Marked non-cacheable in docs."
+
+      - metric_name: Prompt Alignment
+        metric_id: others.prompt_alignment
+        metric_class: PromptAlignmentMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output]
+        required_metric_init_params: [prompt_instructions]
+        optional_metric_init_params:
+          - threshold
+          - model
+          - strict_mode
+          - include_reason
+          - async_mode
+          - verbose_mode
+        threshold_semantics: minimum_is_passing
+
+      - metric_name: Hallucination
+        metric_id: others.hallucination
+        metric_class: HallucinationMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output, context]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - include_reason
+          - strict_mode
+          - async_mode
+          - verbose_mode
+        threshold_semantics: maximum_is_passing
+        notes:
+          - "Uses 'context' as grounding (distinct from retrieval_context)."
+
+      - metric_name: RAGAS
+        metric_id: others.ragas
+        metric_class: RagasMetric
+        test_case_type: LLMTestCase
+        required_test_case_fields: [input, actual_output, expected_output, retrieval_context]
+        required_metric_init_params: []
+        optional_metric_init_params:
+          - threshold
+          - model
+          - embeddings
+        threshold_semantics: minimum_is_passing
+        notes:
+          - "Composite of Answer Relevancy, Faithfulness, Contextual Precision, Contextual Recall."
