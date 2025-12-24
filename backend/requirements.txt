@@ -3,6 +3,7 @@ uvicorn
 pydantic
 pyyaml
 deepeval
+python-multipart
 flask
 flask-cors
 requests
