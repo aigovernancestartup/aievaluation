@@ -24,3 +24,7 @@ backend/artifacts/
 
 # Snyk Security Extension - AI Rules (auto-generated)
 .cursor/rules/snyk_rules.mdc
+backend/logs
+backend/logs/flask_api.log
+
+backend/.deepeval
