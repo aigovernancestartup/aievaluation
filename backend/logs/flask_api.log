@@ -1,0 +1,754 @@
+2025-12-24 15:47:15 | INFO     | aievaluation | <module>:594 | ============================================================
+2025-12-24 15:47:15 | INFO     | aievaluation | <module>:595 | AI Evaluation API Starting
+2025-12-24 15:47:15 | INFO     | aievaluation | <module>:596 | ============================================================
+2025-12-24 15:47:15 | INFO     | aievaluation | <module>:597 | Log file: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/logs/flask_api.log
+2025-12-24 15:47:15 | INFO     | aievaluation | <module>:598 | Artifacts directory: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts
+2025-12-24 15:47:16 | INFO     | aievaluation | <module>:594 | ============================================================
+2025-12-24 15:47:16 | INFO     | aievaluation | <module>:595 | AI Evaluation API Starting
+2025-12-24 15:47:16 | INFO     | aievaluation | <module>:596 | ============================================================
+2025-12-24 15:47:16 | INFO     | aievaluation | <module>:597 | Log file: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/logs/flask_api.log
+2025-12-24 15:47:16 | INFO     | aievaluation | <module>:598 | Artifacts directory: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts
+2025-12-24 15:48:02 | INFO     | aievaluation | wrapper:120 | [bddc7c9d] === INCOMING REQUEST ===
+2025-12-24 15:48:02 | INFO     | aievaluation | wrapper:121 | [bddc7c9d] Endpoint: POST /aievaluation
+2025-12-24 15:48:02 | INFO     | aievaluation | wrapper:122 | [bddc7c9d] Remote IP: 127.0.0.1
+2025-12-24 15:48:02 | INFO     | aievaluation | wrapper:123 | [bddc7c9d] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:48:02 | INFO     | aievaluation | wrapper:128 | [bddc7c9d] Request Body: {
+  "model": "ALBERT-XXLarge",
+  "evaluation_goals": "compliance_and_protocol_adherence",
+  "metrics": "all",
+  "testing_config_file": "/config/default-testing-config.json",
+  "evaluation_name": "eval2",
+  "evaluation_description": "",
+  "model_id": "927"
+}
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:201 | ==================================================
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:202 | PARAMETER EXTRACTION
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:203 | ==================================================
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:211 |   model: ALBERT-XXLarge
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:212 |   model type: str
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:213 |   evaluation_goals: compliance_and_protocol_adherence
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:214 |   evaluation_goals type: str
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:215 |   metrics: all
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:216 |   metrics type: str
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:217 |   testingconfig_file: None
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:218 |   testingconfig_file type: None
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:241 | Generated run_id: 464da9e778ae434397617015f344e599
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:242 | Started at: 2025-12-24T20:48:02.085963
+2025-12-24 15:48:02 | DEBUG    | aievaluation | build_command_args:439 | Building command arguments...
+2025-12-24 15:48:02 | DEBUG    | aievaluation | build_command_args:444 |   Added --model: ALBERT-XXLarge
+2025-12-24 15:48:02 | DEBUG    | aievaluation | build_command_args:452 |   Added --evaluation-goals: compliance_and_protocol_adherence
+2025-12-24 15:48:02 | DEBUG    | aievaluation | build_command_args:460 |   Added --metrics: all
+2025-12-24 15:48:02 | DEBUG    | aievaluation | build_command_args:467 | Final args list: ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'compliance_and_protocol_adherence', '--metrics', 'all']
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:252 | ==================================================
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:253 | COMMAND ARGUMENTS BUILT
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:254 | ==================================================
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:256 |   arg[0]: --model
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:256 |   arg[1]: ALBERT-XXLarge
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:256 |   arg[2]: --evaluation-goals
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:256 |   arg[3]: compliance_and_protocol_adherence
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:256 |   arg[4]: --metrics
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:256 |   arg[5]: all
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:257 |   Full command: python evaluate.py --model ALBERT-XXLarge --evaluation-goals compliance_and_protocol_adherence --metrics all
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:288 | Evaluation request saved to: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/464da9e778ae434397617015f344e599/evaluation_request.json
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:291 | ==================================================
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:292 | EXECUTING EVALUATION
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:293 | ==================================================
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:483 | [464da9e778ae434397617015f344e599] Starting evaluation execution
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:484 | [464da9e778ae434397617015f344e599] Model: ALBERT-XXLarge
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:485 | [464da9e778ae434397617015f344e599] Evaluation Goals: compliance_and_protocol_adherence
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:486 | [464da9e778ae434397617015f344e599] Metrics: all
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:487 | [464da9e778ae434397617015f344e599] Config File: None
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:528 | [464da9e778ae434397617015f344e599] Building API payload for FastAPI backend
+2025-12-24 15:48:02 | DEBUG    | aievaluation | execute_evaluation:559 | [464da9e778ae434397617015f344e599] API Payload: {
+  "evaluation_object": "ALBERT-XXLarge",
+  "use_case": "compliance_and_protocol_adherence",
+  "context": {
+    "deployment_stage": "dev",
+    "risk_class": "low",
+    "user_impact": "internal"
+  },
+  "run": {
+    "mode": "one_off",
+    "environment": "local"
+  },
+  "metrics": [
+    {
+      "metric_id": "rag.answer_relevancy",
+      "threshold": 0.7,
+      "init_params": {}
+    }
+  ],
+  "test_cases": [
+    {
+      "input": "Test input",
+      "actual_output": "Test output",
+      "retrieval_context": [
+        "Test context"
+      ]
+    }
+  ]
+}
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:584 | [464da9e778ae434397617015f344e599] Evaluation result saved to: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/464da9e778ae434397617015f344e599/evaluation_result.json
+2025-12-24 15:48:02 | INFO     | aievaluation | execute_evaluation:585 | [464da9e778ae434397617015f344e599] Evaluation execution complete
+2025-12-24 15:48:02 | INFO     | aievaluation | run_evaluation:304 | Evaluation completed with status: completed
+2025-12-24 15:48:02 | INFO     | aievaluation | wrapper:142 | [bddc7c9d] Response Status: 200
+2025-12-24 15:48:02 | DEBUG    | aievaluation | wrapper:143 | [bddc7c9d] Response Data: {'artifacts_path': '/Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/464da9e778ae434397617015f344e599', 'command_args': ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'compliance_and_protocol_adherence', '--metrics', 'all'], 'log_file': '/Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/logs/flask_api.log', 'message': "Evaluation initiated for model 'ALBERT-XXLarge'", 'parameters': {'evaluation_goals': 'compliance_and_protocol_adherence', 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'testingconfig_file': None}, 'result': {'api_payload_preview': {'context': {'deployment_stage': 'dev', 'risk_class': 'low', 'user_impact': 'internal'}, 'evaluation_object': 'ALBERT-XXLarge', 'metrics': [{'init_params': {}, 'metric_id': 'rag.answer_relevancy', 'threshold': 0.7}], 'run': {'environment': 'local', 'mode': 'one_off'}, 'test_cases': [{'actual_output': 'Test output', 'input': 'Test input', 'retrieval_context': ['Test context']}], 'use_case': 'compliance_and_protocol_adherence'}, 'command_preview': 'python evaluate.py --model ALBERT-XXLarge --evaluation-goals compliance_and_protocol_adherence --metrics all', 'evaluation_goals': 'compliance_and_protocol_adherence', 'executed_at': '2025-12-24T20:48:02.088268', 'integration_note': 'Ready to integrate with FastAPI backend on port 8000', 'message': 'Evaluation parameters validated and logged. Ready for execution.', 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'status': 'completed', 'testingconfig_file': None}, 'run_id': '464da9e778ae434397617015f344e599', 'status': 'completed'}
+2025-12-24 15:48:02 | INFO     | aievaluation | wrapper:144 | [bddc7c9d] === REQUEST COMPLETE ===
+2025-12-24 15:51:30 | INFO     | aievaluation | wrapper:120 | [f62d1be5] === INCOMING REQUEST ===
+2025-12-24 15:51:30 | INFO     | aievaluation | wrapper:121 | [f62d1be5] Endpoint: GET /aievaluation/list
+2025-12-24 15:51:30 | INFO     | aievaluation | wrapper:122 | [f62d1be5] Remote IP: 127.0.0.1
+2025-12-24 15:51:30 | INFO     | aievaluation | wrapper:123 | [f62d1be5] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:51:30 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:51:30 | INFO     | aievaluation | list_evaluations:394 | Found 2 evaluation runs
+2025-12-24 15:51:30 | INFO     | aievaluation | wrapper:142 | [f62d1be5] Response Status: 200
+2025-12-24 15:51:30 | DEBUG    | aievaluation | wrapper:143 | [f62d1be5] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 2}
+2025-12-24 15:51:30 | INFO     | aievaluation | wrapper:144 | [f62d1be5] === REQUEST COMPLETE ===
+2025-12-24 15:51:35 | INFO     | aievaluation | wrapper:120 | [681d4ecd] === INCOMING REQUEST ===
+2025-12-24 15:51:35 | INFO     | aievaluation | wrapper:121 | [681d4ecd] Endpoint: GET /aievaluation/list
+2025-12-24 15:51:35 | INFO     | aievaluation | wrapper:122 | [681d4ecd] Remote IP: 127.0.0.1
+2025-12-24 15:51:35 | INFO     | aievaluation | wrapper:123 | [681d4ecd] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:51:35 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:51:35 | INFO     | aievaluation | list_evaluations:394 | Found 2 evaluation runs
+2025-12-24 15:51:35 | INFO     | aievaluation | wrapper:142 | [681d4ecd] Response Status: 200
+2025-12-24 15:51:35 | DEBUG    | aievaluation | wrapper:143 | [681d4ecd] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 2}
+2025-12-24 15:51:35 | INFO     | aievaluation | wrapper:144 | [681d4ecd] === REQUEST COMPLETE ===
+2025-12-24 15:51:40 | INFO     | aievaluation | wrapper:120 | [8180f508] === INCOMING REQUEST ===
+2025-12-24 15:51:40 | INFO     | aievaluation | wrapper:121 | [8180f508] Endpoint: GET /aievaluation/list
+2025-12-24 15:51:40 | INFO     | aievaluation | wrapper:122 | [8180f508] Remote IP: 127.0.0.1
+2025-12-24 15:51:40 | INFO     | aievaluation | wrapper:123 | [8180f508] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:51:40 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:51:40 | INFO     | aievaluation | list_evaluations:394 | Found 2 evaluation runs
+2025-12-24 15:51:40 | INFO     | aievaluation | wrapper:142 | [8180f508] Response Status: 200
+2025-12-24 15:51:40 | DEBUG    | aievaluation | wrapper:143 | [8180f508] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 2}
+2025-12-24 15:51:40 | INFO     | aievaluation | wrapper:144 | [8180f508] === REQUEST COMPLETE ===
+2025-12-24 15:52:11 | INFO     | aievaluation | wrapper:120 | [69cac19e] === INCOMING REQUEST ===
+2025-12-24 15:52:11 | INFO     | aievaluation | wrapper:121 | [69cac19e] Endpoint: GET /aievaluation/list
+2025-12-24 15:52:11 | INFO     | aievaluation | wrapper:122 | [69cac19e] Remote IP: 127.0.0.1
+2025-12-24 15:52:11 | INFO     | aievaluation | wrapper:123 | [69cac19e] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:52:11 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:52:11 | INFO     | aievaluation | list_evaluations:394 | Found 2 evaluation runs
+2025-12-24 15:52:11 | INFO     | aievaluation | wrapper:142 | [69cac19e] Response Status: 200
+2025-12-24 15:52:11 | DEBUG    | aievaluation | wrapper:143 | [69cac19e] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 2}
+2025-12-24 15:52:11 | INFO     | aievaluation | wrapper:144 | [69cac19e] === REQUEST COMPLETE ===
+2025-12-24 15:52:17 | INFO     | aievaluation | wrapper:120 | [3c02f19e] === INCOMING REQUEST ===
+2025-12-24 15:52:17 | INFO     | aievaluation | wrapper:121 | [3c02f19e] Endpoint: GET /aievaluation/list
+2025-12-24 15:52:17 | INFO     | aievaluation | wrapper:122 | [3c02f19e] Remote IP: 127.0.0.1
+2025-12-24 15:52:17 | INFO     | aievaluation | wrapper:123 | [3c02f19e] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:52:17 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:52:17 | INFO     | aievaluation | list_evaluations:394 | Found 2 evaluation runs
+2025-12-24 15:52:17 | INFO     | aievaluation | wrapper:142 | [3c02f19e] Response Status: 200
+2025-12-24 15:52:17 | DEBUG    | aievaluation | wrapper:143 | [3c02f19e] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 2}
+2025-12-24 15:52:17 | INFO     | aievaluation | wrapper:144 | [3c02f19e] === REQUEST COMPLETE ===
+2025-12-24 15:52:29 | INFO     | aievaluation | wrapper:120 | [db1a551b] === INCOMING REQUEST ===
+2025-12-24 15:52:29 | INFO     | aievaluation | wrapper:121 | [db1a551b] Endpoint: GET /aievaluation/list
+2025-12-24 15:52:29 | INFO     | aievaluation | wrapper:122 | [db1a551b] Remote IP: 127.0.0.1
+2025-12-24 15:52:29 | INFO     | aievaluation | wrapper:123 | [db1a551b] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:52:29 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:52:29 | INFO     | aievaluation | list_evaluations:394 | Found 2 evaluation runs
+2025-12-24 15:52:29 | INFO     | aievaluation | wrapper:142 | [db1a551b] Response Status: 200
+2025-12-24 15:52:29 | DEBUG    | aievaluation | wrapper:143 | [db1a551b] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 2}
+2025-12-24 15:52:29 | INFO     | aievaluation | wrapper:144 | [db1a551b] === REQUEST COMPLETE ===
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:120 | [c33019c6] === INCOMING REQUEST ===
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:121 | [c33019c6] Endpoint: POST /aievaluation
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:122 | [c33019c6] Remote IP: 127.0.0.1
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:123 | [c33019c6] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:128 | [c33019c6] Request Body: {
+  "model": "ALBERT-XXLarge",
+  "evaluation_goals": "output_correctness_and_structure",
+  "metrics": "all",
+  "testing_config_file": "/config/default-testing-config.json",
+  "evaluation_name": "eval2",
+  "evaluation_description": "",
+  "model_id": "927"
+}
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:201 | ==================================================
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:202 | PARAMETER EXTRACTION
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:203 | ==================================================
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:211 |   model: ALBERT-XXLarge
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:212 |   model type: str
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:213 |   evaluation_goals: output_correctness_and_structure
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:214 |   evaluation_goals type: str
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:215 |   metrics: all
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:216 |   metrics type: str
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:217 |   testingconfig_file: None
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:218 |   testingconfig_file type: None
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:241 | Generated run_id: 6f514b05e8624930ad7d0f2b141abb82
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:242 | Started at: 2025-12-24T20:52:41.948258
+2025-12-24 15:52:41 | DEBUG    | aievaluation | build_command_args:439 | Building command arguments...
+2025-12-24 15:52:41 | DEBUG    | aievaluation | build_command_args:444 |   Added --model: ALBERT-XXLarge
+2025-12-24 15:52:41 | DEBUG    | aievaluation | build_command_args:452 |   Added --evaluation-goals: output_correctness_and_structure
+2025-12-24 15:52:41 | DEBUG    | aievaluation | build_command_args:460 |   Added --metrics: all
+2025-12-24 15:52:41 | DEBUG    | aievaluation | build_command_args:467 | Final args list: ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'output_correctness_and_structure', '--metrics', 'all']
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:252 | ==================================================
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:253 | COMMAND ARGUMENTS BUILT
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:254 | ==================================================
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:256 |   arg[0]: --model
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:256 |   arg[1]: ALBERT-XXLarge
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:256 |   arg[2]: --evaluation-goals
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:256 |   arg[3]: output_correctness_and_structure
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:256 |   arg[4]: --metrics
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:256 |   arg[5]: all
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:257 |   Full command: python evaluate.py --model ALBERT-XXLarge --evaluation-goals output_correctness_and_structure --metrics all
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:288 | Evaluation request saved to: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/6f514b05e8624930ad7d0f2b141abb82/evaluation_request.json
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:291 | ==================================================
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:292 | EXECUTING EVALUATION
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:293 | ==================================================
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:483 | [6f514b05e8624930ad7d0f2b141abb82] Starting evaluation execution
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:484 | [6f514b05e8624930ad7d0f2b141abb82] Model: ALBERT-XXLarge
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:485 | [6f514b05e8624930ad7d0f2b141abb82] Evaluation Goals: output_correctness_and_structure
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:486 | [6f514b05e8624930ad7d0f2b141abb82] Metrics: all
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:487 | [6f514b05e8624930ad7d0f2b141abb82] Config File: None
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:528 | [6f514b05e8624930ad7d0f2b141abb82] Building API payload for FastAPI backend
+2025-12-24 15:52:41 | DEBUG    | aievaluation | execute_evaluation:559 | [6f514b05e8624930ad7d0f2b141abb82] API Payload: {
+  "evaluation_object": "ALBERT-XXLarge",
+  "use_case": "output_correctness_and_structure",
+  "context": {
+    "deployment_stage": "dev",
+    "risk_class": "low",
+    "user_impact": "internal"
+  },
+  "run": {
+    "mode": "one_off",
+    "environment": "local"
+  },
+  "metrics": [
+    {
+      "metric_id": "rag.answer_relevancy",
+      "threshold": 0.7,
+      "init_params": {}
+    }
+  ],
+  "test_cases": [
+    {
+      "input": "Test input",
+      "actual_output": "Test output",
+      "retrieval_context": [
+        "Test context"
+      ]
+    }
+  ]
+}
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:584 | [6f514b05e8624930ad7d0f2b141abb82] Evaluation result saved to: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/6f514b05e8624930ad7d0f2b141abb82/evaluation_result.json
+2025-12-24 15:52:41 | INFO     | aievaluation | execute_evaluation:585 | [6f514b05e8624930ad7d0f2b141abb82] Evaluation execution complete
+2025-12-24 15:52:41 | INFO     | aievaluation | run_evaluation:304 | Evaluation completed with status: completed
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:142 | [c33019c6] Response Status: 200
+2025-12-24 15:52:41 | DEBUG    | aievaluation | wrapper:143 | [c33019c6] Response Data: {'artifacts_path': '/Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/6f514b05e8624930ad7d0f2b141abb82', 'command_args': ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'output_correctness_and_structure', '--metrics', 'all'], 'log_file': '/Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/logs/flask_api.log', 'message': "Evaluation initiated for model 'ALBERT-XXLarge'", 'parameters': {'evaluation_goals': 'output_correctness_and_structure', 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'testingconfig_file': None}, 'result': {'api_payload_preview': {'context': {'deployment_stage': 'dev', 'risk_class': 'low', 'user_impact': 'internal'}, 'evaluation_object': 'ALBERT-XXLarge', 'metrics': [{'init_params': {}, 'metric_id': 'rag.answer_relevancy', 'threshold': 0.7}], 'run': {'environment': 'local', 'mode': 'one_off'}, 'test_cases': [{'actual_output': 'Test output', 'input': 'Test input', 'retrieval_context': ['Test context']}], 'use_case': 'output_correctness_and_structure'}, 'command_preview': 'python evaluate.py --model ALBERT-XXLarge --evaluation-goals output_correctness_and_structure --metrics all', 'evaluation_goals': 'output_correctness_and_structure', 'executed_at': '2025-12-24T20:52:41.952596', 'integration_note': 'Ready to integrate with FastAPI backend on port 8000', 'message': 'Evaluation parameters validated and logged. Ready for execution.', 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'status': 'completed', 'testingconfig_file': None}, 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'status': 'completed'}
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:144 | [c33019c6] === REQUEST COMPLETE ===
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:120 | [3fae9123] === INCOMING REQUEST ===
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:121 | [3fae9123] Endpoint: GET /aievaluation/list
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:122 | [3fae9123] Remote IP: 127.0.0.1
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:123 | [3fae9123] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:52:41 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:52:41 | INFO     | aievaluation | list_evaluations:394 | Found 3 evaluation runs
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:142 | [3fae9123] Response Status: 200
+2025-12-24 15:52:41 | DEBUG    | aievaluation | wrapper:143 | [3fae9123] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 3}
+2025-12-24 15:52:41 | INFO     | aievaluation | wrapper:144 | [3fae9123] === REQUEST COMPLETE ===
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:120 | [a822f7a1] === INCOMING REQUEST ===
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:121 | [a822f7a1] Endpoint: POST /aievaluation
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:122 | [a822f7a1] Remote IP: 127.0.0.1
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:123 | [a822f7a1] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:128 | [a822f7a1] Request Body: {
+  "model": "AlphaFold2",
+  "evaluation_goals": "quality_and_accuracy",
+  "metrics": "all",
+  "testing_config_file": "/config/default-testing-config.json",
+  "evaluation_name": "eval3",
+  "evaluation_description": "",
+  "model_id": "1014"
+}
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:201 | ==================================================
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:202 | PARAMETER EXTRACTION
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:203 | ==================================================
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:211 |   model: AlphaFold2
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:212 |   model type: str
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:213 |   evaluation_goals: quality_and_accuracy
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:214 |   evaluation_goals type: str
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:215 |   metrics: all
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:216 |   metrics type: str
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:217 |   testingconfig_file: None
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:218 |   testingconfig_file type: None
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:241 | Generated run_id: d2e843465a5b4c59bdc60e257985f6a6
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:242 | Started at: 2025-12-24T20:53:09.943403
+2025-12-24 15:53:09 | DEBUG    | aievaluation | build_command_args:439 | Building command arguments...
+2025-12-24 15:53:09 | DEBUG    | aievaluation | build_command_args:444 |   Added --model: AlphaFold2
+2025-12-24 15:53:09 | DEBUG    | aievaluation | build_command_args:452 |   Added --evaluation-goals: quality_and_accuracy
+2025-12-24 15:53:09 | DEBUG    | aievaluation | build_command_args:460 |   Added --metrics: all
+2025-12-24 15:53:09 | DEBUG    | aievaluation | build_command_args:467 | Final args list: ['--model', 'AlphaFold2', '--evaluation-goals', 'quality_and_accuracy', '--metrics', 'all']
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:252 | ==================================================
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:253 | COMMAND ARGUMENTS BUILT
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:254 | ==================================================
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:256 |   arg[0]: --model
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:256 |   arg[1]: AlphaFold2
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:256 |   arg[2]: --evaluation-goals
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:256 |   arg[3]: quality_and_accuracy
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:256 |   arg[4]: --metrics
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:256 |   arg[5]: all
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:257 |   Full command: python evaluate.py --model AlphaFold2 --evaluation-goals quality_and_accuracy --metrics all
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:288 | Evaluation request saved to: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/d2e843465a5b4c59bdc60e257985f6a6/evaluation_request.json
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:291 | ==================================================
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:292 | EXECUTING EVALUATION
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:293 | ==================================================
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:483 | [d2e843465a5b4c59bdc60e257985f6a6] Starting evaluation execution
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:484 | [d2e843465a5b4c59bdc60e257985f6a6] Model: AlphaFold2
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:485 | [d2e843465a5b4c59bdc60e257985f6a6] Evaluation Goals: quality_and_accuracy
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:486 | [d2e843465a5b4c59bdc60e257985f6a6] Metrics: all
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:487 | [d2e843465a5b4c59bdc60e257985f6a6] Config File: None
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:528 | [d2e843465a5b4c59bdc60e257985f6a6] Building API payload for FastAPI backend
+2025-12-24 15:53:09 | DEBUG    | aievaluation | execute_evaluation:559 | [d2e843465a5b4c59bdc60e257985f6a6] API Payload: {
+  "evaluation_object": "AlphaFold2",
+  "use_case": "quality_and_accuracy",
+  "context": {
+    "deployment_stage": "dev",
+    "risk_class": "low",
+    "user_impact": "internal"
+  },
+  "run": {
+    "mode": "one_off",
+    "environment": "local"
+  },
+  "metrics": [
+    {
+      "metric_id": "rag.answer_relevancy",
+      "threshold": 0.7,
+      "init_params": {}
+    }
+  ],
+  "test_cases": [
+    {
+      "input": "Test input",
+      "actual_output": "Test output",
+      "retrieval_context": [
+        "Test context"
+      ]
+    }
+  ]
+}
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:584 | [d2e843465a5b4c59bdc60e257985f6a6] Evaluation result saved to: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/d2e843465a5b4c59bdc60e257985f6a6/evaluation_result.json
+2025-12-24 15:53:09 | INFO     | aievaluation | execute_evaluation:585 | [d2e843465a5b4c59bdc60e257985f6a6] Evaluation execution complete
+2025-12-24 15:53:09 | INFO     | aievaluation | run_evaluation:304 | Evaluation completed with status: completed
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:142 | [a822f7a1] Response Status: 200
+2025-12-24 15:53:09 | DEBUG    | aievaluation | wrapper:143 | [a822f7a1] Response Data: {'artifacts_path': '/Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts/d2e843465a5b4c59bdc60e257985f6a6', 'command_args': ['--model', 'AlphaFold2', '--evaluation-goals', 'quality_and_accuracy', '--metrics', 'all'], 'log_file': '/Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/logs/flask_api.log', 'message': "Evaluation initiated for model 'AlphaFold2'", 'parameters': {'evaluation_goals': 'quality_and_accuracy', 'metrics': 'all', 'model': 'AlphaFold2', 'testingconfig_file': None}, 'result': {'api_payload_preview': {'context': {'deployment_stage': 'dev', 'risk_class': 'low', 'user_impact': 'internal'}, 'evaluation_object': 'AlphaFold2', 'metrics': [{'init_params': {}, 'metric_id': 'rag.answer_relevancy', 'threshold': 0.7}], 'run': {'environment': 'local', 'mode': 'one_off'}, 'test_cases': [{'actual_output': 'Test output', 'input': 'Test input', 'retrieval_context': ['Test context']}], 'use_case': 'quality_and_accuracy'}, 'command_preview': 'python evaluate.py --model AlphaFold2 --evaluation-goals quality_and_accuracy --metrics all', 'evaluation_goals': 'quality_and_accuracy', 'executed_at': '2025-12-24T20:53:09.946571', 'integration_note': 'Ready to integrate with FastAPI backend on port 8000', 'message': 'Evaluation parameters validated and logged. Ready for execution.', 'metrics': 'all', 'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'status': 'completed', 'testingconfig_file': None}, 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'status': 'completed'}
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:144 | [a822f7a1] === REQUEST COMPLETE ===
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:120 | [4f6bc352] === INCOMING REQUEST ===
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:121 | [4f6bc352] Endpoint: GET /aievaluation/list
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:122 | [4f6bc352] Remote IP: 127.0.0.1
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:123 | [4f6bc352] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:53:09 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:53:09 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:142 | [4f6bc352] Response Status: 200
+2025-12-24 15:53:09 | DEBUG    | aievaluation | wrapper:143 | [4f6bc352] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:53:09 | INFO     | aievaluation | wrapper:144 | [4f6bc352] === REQUEST COMPLETE ===
+2025-12-24 15:53:21 | INFO     | aievaluation | wrapper:120 | [a89a5736] === INCOMING REQUEST ===
+2025-12-24 15:53:21 | INFO     | aievaluation | wrapper:121 | [a89a5736] Endpoint: GET /aievaluation/list
+2025-12-24 15:53:21 | INFO     | aievaluation | wrapper:122 | [a89a5736] Remote IP: 127.0.0.1
+2025-12-24 15:53:21 | INFO     | aievaluation | wrapper:123 | [a89a5736] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:53:21 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:53:21 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:53:21 | INFO     | aievaluation | wrapper:142 | [a89a5736] Response Status: 200
+2025-12-24 15:53:21 | DEBUG    | aievaluation | wrapper:143 | [a89a5736] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:53:21 | INFO     | aievaluation | wrapper:144 | [a89a5736] === REQUEST COMPLETE ===
+2025-12-24 15:53:51 | INFO     | aievaluation | wrapper:120 | [cf048ede] === INCOMING REQUEST ===
+2025-12-24 15:53:51 | INFO     | aievaluation | wrapper:121 | [cf048ede] Endpoint: GET /aievaluation/list
+2025-12-24 15:53:51 | INFO     | aievaluation | wrapper:122 | [cf048ede] Remote IP: 127.0.0.1
+2025-12-24 15:53:51 | INFO     | aievaluation | wrapper:123 | [cf048ede] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:53:51 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:53:51 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:53:51 | INFO     | aievaluation | wrapper:142 | [cf048ede] Response Status: 200
+2025-12-24 15:53:51 | DEBUG    | aievaluation | wrapper:143 | [cf048ede] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:53:51 | INFO     | aievaluation | wrapper:144 | [cf048ede] === REQUEST COMPLETE ===
+2025-12-24 15:54:21 | INFO     | aievaluation | wrapper:120 | [c5c880fd] === INCOMING REQUEST ===
+2025-12-24 15:54:21 | INFO     | aievaluation | wrapper:121 | [c5c880fd] Endpoint: GET /aievaluation/list
+2025-12-24 15:54:21 | INFO     | aievaluation | wrapper:122 | [c5c880fd] Remote IP: 127.0.0.1
+2025-12-24 15:54:21 | INFO     | aievaluation | wrapper:123 | [c5c880fd] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:54:21 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:54:21 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:54:21 | INFO     | aievaluation | wrapper:142 | [c5c880fd] Response Status: 200
+2025-12-24 15:54:21 | DEBUG    | aievaluation | wrapper:143 | [c5c880fd] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:54:21 | INFO     | aievaluation | wrapper:144 | [c5c880fd] === REQUEST COMPLETE ===
+2025-12-24 15:54:51 | INFO     | aievaluation | wrapper:120 | [a3871af0] === INCOMING REQUEST ===
+2025-12-24 15:54:51 | INFO     | aievaluation | wrapper:121 | [a3871af0] Endpoint: GET /aievaluation/list
+2025-12-24 15:54:51 | INFO     | aievaluation | wrapper:122 | [a3871af0] Remote IP: 127.0.0.1
+2025-12-24 15:54:51 | INFO     | aievaluation | wrapper:123 | [a3871af0] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:54:51 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:54:51 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:54:51 | INFO     | aievaluation | wrapper:142 | [a3871af0] Response Status: 200
+2025-12-24 15:54:51 | DEBUG    | aievaluation | wrapper:143 | [a3871af0] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:54:51 | INFO     | aievaluation | wrapper:144 | [a3871af0] === REQUEST COMPLETE ===
+2025-12-24 15:55:02 | INFO     | aievaluation | wrapper:120 | [61310e08] === INCOMING REQUEST ===
+2025-12-24 15:55:02 | INFO     | aievaluation | wrapper:121 | [61310e08] Endpoint: GET /aievaluation/list
+2025-12-24 15:55:02 | INFO     | aievaluation | wrapper:122 | [61310e08] Remote IP: 127.0.0.1
+2025-12-24 15:55:02 | INFO     | aievaluation | wrapper:123 | [61310e08] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:55:02 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:55:02 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:55:02 | INFO     | aievaluation | wrapper:142 | [61310e08] Response Status: 200
+2025-12-24 15:55:02 | DEBUG    | aievaluation | wrapper:143 | [61310e08] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:55:02 | INFO     | aievaluation | wrapper:144 | [61310e08] === REQUEST COMPLETE ===
+2025-12-24 15:55:10 | INFO     | aievaluation | wrapper:120 | [028e3b0e] === INCOMING REQUEST ===
+2025-12-24 15:55:10 | INFO     | aievaluation | wrapper:121 | [028e3b0e] Endpoint: GET /aievaluation/list
+2025-12-24 15:55:10 | INFO     | aievaluation | wrapper:122 | [028e3b0e] Remote IP: 127.0.0.1
+2025-12-24 15:55:10 | INFO     | aievaluation | wrapper:123 | [028e3b0e] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:55:10 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:55:10 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:55:10 | INFO     | aievaluation | wrapper:142 | [028e3b0e] Response Status: 200
+2025-12-24 15:55:10 | DEBUG    | aievaluation | wrapper:143 | [028e3b0e] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:55:10 | INFO     | aievaluation | wrapper:144 | [028e3b0e] === REQUEST COMPLETE ===
+2025-12-24 15:55:27 | INFO     | aievaluation | wrapper:120 | [171850d8] === INCOMING REQUEST ===
+2025-12-24 15:55:27 | INFO     | aievaluation | wrapper:121 | [171850d8] Endpoint: GET /aievaluation/list
+2025-12-24 15:55:27 | INFO     | aievaluation | wrapper:122 | [171850d8] Remote IP: 127.0.0.1
+2025-12-24 15:55:27 | INFO     | aievaluation | wrapper:123 | [171850d8] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:55:27 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:55:27 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:55:27 | INFO     | aievaluation | wrapper:142 | [171850d8] Response Status: 200
+2025-12-24 15:55:27 | DEBUG    | aievaluation | wrapper:143 | [171850d8] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:55:27 | INFO     | aievaluation | wrapper:144 | [171850d8] === REQUEST COMPLETE ===
+2025-12-24 15:55:57 | INFO     | aievaluation | wrapper:120 | [a524688c] === INCOMING REQUEST ===
+2025-12-24 15:55:57 | INFO     | aievaluation | wrapper:121 | [a524688c] Endpoint: GET /aievaluation/list
+2025-12-24 15:55:57 | INFO     | aievaluation | wrapper:122 | [a524688c] Remote IP: 127.0.0.1
+2025-12-24 15:55:57 | INFO     | aievaluation | wrapper:123 | [a524688c] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:55:57 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:55:57 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:55:57 | INFO     | aievaluation | wrapper:142 | [a524688c] Response Status: 200
+2025-12-24 15:55:57 | DEBUG    | aievaluation | wrapper:143 | [a524688c] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:55:57 | INFO     | aievaluation | wrapper:144 | [a524688c] === REQUEST COMPLETE ===
+2025-12-24 15:56:19 | INFO     | aievaluation | wrapper:120 | [6e933ad2] === INCOMING REQUEST ===
+2025-12-24 15:56:19 | INFO     | aievaluation | wrapper:121 | [6e933ad2] Endpoint: GET /aievaluation/list
+2025-12-24 15:56:19 | INFO     | aievaluation | wrapper:122 | [6e933ad2] Remote IP: 127.0.0.1
+2025-12-24 15:56:19 | INFO     | aievaluation | wrapper:123 | [6e933ad2] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:56:19 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:56:19 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:56:19 | INFO     | aievaluation | wrapper:142 | [6e933ad2] Response Status: 200
+2025-12-24 15:56:19 | DEBUG    | aievaluation | wrapper:143 | [6e933ad2] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:56:19 | INFO     | aievaluation | wrapper:144 | [6e933ad2] === REQUEST COMPLETE ===
+2025-12-24 15:56:32 | INFO     | aievaluation | wrapper:120 | [02392e07] === INCOMING REQUEST ===
+2025-12-24 15:56:32 | INFO     | aievaluation | wrapper:121 | [02392e07] Endpoint: GET /aievaluation/list
+2025-12-24 15:56:32 | INFO     | aievaluation | wrapper:122 | [02392e07] Remote IP: 127.0.0.1
+2025-12-24 15:56:32 | INFO     | aievaluation | wrapper:123 | [02392e07] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:56:32 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:56:32 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:56:32 | INFO     | aievaluation | wrapper:142 | [02392e07] Response Status: 200
+2025-12-24 15:56:32 | DEBUG    | aievaluation | wrapper:143 | [02392e07] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:56:32 | INFO     | aievaluation | wrapper:144 | [02392e07] === REQUEST COMPLETE ===
+2025-12-24 15:57:02 | INFO     | aievaluation | wrapper:120 | [a95b4d1b] === INCOMING REQUEST ===
+2025-12-24 15:57:02 | INFO     | aievaluation | wrapper:121 | [a95b4d1b] Endpoint: GET /aievaluation/list
+2025-12-24 15:57:02 | INFO     | aievaluation | wrapper:122 | [a95b4d1b] Remote IP: 127.0.0.1
+2025-12-24 15:57:02 | INFO     | aievaluation | wrapper:123 | [a95b4d1b] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:57:02 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:57:02 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:57:02 | INFO     | aievaluation | wrapper:142 | [a95b4d1b] Response Status: 200
+2025-12-24 15:57:02 | DEBUG    | aievaluation | wrapper:143 | [a95b4d1b] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:57:02 | INFO     | aievaluation | wrapper:144 | [a95b4d1b] === REQUEST COMPLETE ===
+2025-12-24 15:57:32 | INFO     | aievaluation | wrapper:120 | [ef73b61b] === INCOMING REQUEST ===
+2025-12-24 15:57:32 | INFO     | aievaluation | wrapper:121 | [ef73b61b] Endpoint: GET /aievaluation/list
+2025-12-24 15:57:32 | INFO     | aievaluation | wrapper:122 | [ef73b61b] Remote IP: 127.0.0.1
+2025-12-24 15:57:32 | INFO     | aievaluation | wrapper:123 | [ef73b61b] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:57:32 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:57:32 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:57:32 | INFO     | aievaluation | wrapper:142 | [ef73b61b] Response Status: 200
+2025-12-24 15:57:32 | DEBUG    | aievaluation | wrapper:143 | [ef73b61b] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:57:32 | INFO     | aievaluation | wrapper:144 | [ef73b61b] === REQUEST COMPLETE ===
+2025-12-24 15:58:02 | INFO     | aievaluation | wrapper:120 | [3f995cb7] === INCOMING REQUEST ===
+2025-12-24 15:58:02 | INFO     | aievaluation | wrapper:121 | [3f995cb7] Endpoint: GET /aievaluation/list
+2025-12-24 15:58:02 | INFO     | aievaluation | wrapper:122 | [3f995cb7] Remote IP: 127.0.0.1
+2025-12-24 15:58:02 | INFO     | aievaluation | wrapper:123 | [3f995cb7] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:58:02 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:58:02 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:58:02 | INFO     | aievaluation | wrapper:142 | [3f995cb7] Response Status: 200
+2025-12-24 15:58:02 | DEBUG    | aievaluation | wrapper:143 | [3f995cb7] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:58:02 | INFO     | aievaluation | wrapper:144 | [3f995cb7] === REQUEST COMPLETE ===
+2025-12-24 15:58:32 | INFO     | aievaluation | wrapper:120 | [02eda00a] === INCOMING REQUEST ===
+2025-12-24 15:58:32 | INFO     | aievaluation | wrapper:121 | [02eda00a] Endpoint: GET /aievaluation/list
+2025-12-24 15:58:32 | INFO     | aievaluation | wrapper:122 | [02eda00a] Remote IP: 127.0.0.1
+2025-12-24 15:58:32 | INFO     | aievaluation | wrapper:123 | [02eda00a] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:58:32 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:58:32 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:58:32 | INFO     | aievaluation | wrapper:142 | [02eda00a] Response Status: 200
+2025-12-24 15:58:32 | DEBUG    | aievaluation | wrapper:143 | [02eda00a] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:58:32 | INFO     | aievaluation | wrapper:144 | [02eda00a] === REQUEST COMPLETE ===
+2025-12-24 15:59:02 | INFO     | aievaluation | wrapper:120 | [c9991f06] === INCOMING REQUEST ===
+2025-12-24 15:59:02 | INFO     | aievaluation | wrapper:121 | [c9991f06] Endpoint: GET /aievaluation/list
+2025-12-24 15:59:02 | INFO     | aievaluation | wrapper:122 | [c9991f06] Remote IP: 127.0.0.1
+2025-12-24 15:59:02 | INFO     | aievaluation | wrapper:123 | [c9991f06] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:59:02 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:59:02 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:59:02 | INFO     | aievaluation | wrapper:142 | [c9991f06] Response Status: 200
+2025-12-24 15:59:02 | DEBUG    | aievaluation | wrapper:143 | [c9991f06] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:59:02 | INFO     | aievaluation | wrapper:144 | [c9991f06] === REQUEST COMPLETE ===
+2025-12-24 15:59:34 | INFO     | aievaluation | wrapper:120 | [4e28d4c0] === INCOMING REQUEST ===
+2025-12-24 15:59:34 | INFO     | aievaluation | wrapper:121 | [4e28d4c0] Endpoint: GET /aievaluation/list
+2025-12-24 15:59:34 | INFO     | aievaluation | wrapper:122 | [4e28d4c0] Remote IP: 127.0.0.1
+2025-12-24 15:59:34 | INFO     | aievaluation | wrapper:123 | [4e28d4c0] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 15:59:34 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 15:59:34 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 15:59:34 | INFO     | aievaluation | wrapper:142 | [4e28d4c0] Response Status: 200
+2025-12-24 15:59:34 | DEBUG    | aievaluation | wrapper:143 | [4e28d4c0] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 15:59:34 | INFO     | aievaluation | wrapper:144 | [4e28d4c0] === REQUEST COMPLETE ===
+2025-12-24 16:00:04 | INFO     | aievaluation | wrapper:120 | [f90bbaed] === INCOMING REQUEST ===
+2025-12-24 16:00:04 | INFO     | aievaluation | wrapper:121 | [f90bbaed] Endpoint: GET /aievaluation/list
+2025-12-24 16:00:04 | INFO     | aievaluation | wrapper:122 | [f90bbaed] Remote IP: 127.0.0.1
+2025-12-24 16:00:04 | INFO     | aievaluation | wrapper:123 | [f90bbaed] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:00:04 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:00:04 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:00:04 | INFO     | aievaluation | wrapper:142 | [f90bbaed] Response Status: 200
+2025-12-24 16:00:04 | DEBUG    | aievaluation | wrapper:143 | [f90bbaed] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:00:04 | INFO     | aievaluation | wrapper:144 | [f90bbaed] === REQUEST COMPLETE ===
+2025-12-24 16:00:30 | INFO     | aievaluation | wrapper:120 | [8b54d50c] === INCOMING REQUEST ===
+2025-12-24 16:00:30 | INFO     | aievaluation | wrapper:121 | [8b54d50c] Endpoint: GET /aievaluation/list
+2025-12-24 16:00:30 | INFO     | aievaluation | wrapper:122 | [8b54d50c] Remote IP: 127.0.0.1
+2025-12-24 16:00:30 | INFO     | aievaluation | wrapper:123 | [8b54d50c] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:00:30 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:00:30 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:00:30 | INFO     | aievaluation | wrapper:142 | [8b54d50c] Response Status: 200
+2025-12-24 16:00:30 | DEBUG    | aievaluation | wrapper:143 | [8b54d50c] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:00:30 | INFO     | aievaluation | wrapper:144 | [8b54d50c] === REQUEST COMPLETE ===
+2025-12-24 16:00:38 | INFO     | aievaluation | wrapper:120 | [64eadd10] === INCOMING REQUEST ===
+2025-12-24 16:00:38 | INFO     | aievaluation | wrapper:121 | [64eadd10] Endpoint: GET /aievaluation/list
+2025-12-24 16:00:38 | INFO     | aievaluation | wrapper:122 | [64eadd10] Remote IP: 127.0.0.1
+2025-12-24 16:00:38 | INFO     | aievaluation | wrapper:123 | [64eadd10] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:00:38 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:00:38 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:00:38 | INFO     | aievaluation | wrapper:142 | [64eadd10] Response Status: 200
+2025-12-24 16:00:38 | DEBUG    | aievaluation | wrapper:143 | [64eadd10] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:00:38 | INFO     | aievaluation | wrapper:144 | [64eadd10] === REQUEST COMPLETE ===
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:120 | [fe0ccfcc] === INCOMING REQUEST ===
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:121 | [fe0ccfcc] Endpoint: GET /aievaluation/list
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:122 | [fe0ccfcc] Remote IP: 127.0.0.1
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:123 | [fe0ccfcc] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:00:55 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:00:55 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:142 | [fe0ccfcc] Response Status: 200
+2025-12-24 16:00:55 | DEBUG    | aievaluation | wrapper:143 | [fe0ccfcc] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:144 | [fe0ccfcc] === REQUEST COMPLETE ===
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:120 | [84d50e03] === INCOMING REQUEST ===
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:121 | [84d50e03] Endpoint: GET /aievaluation/list
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:122 | [84d50e03] Remote IP: 127.0.0.1
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:123 | [84d50e03] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:00:55 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:00:55 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:142 | [84d50e03] Response Status: 200
+2025-12-24 16:00:55 | DEBUG    | aievaluation | wrapper:143 | [84d50e03] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:00:55 | INFO     | aievaluation | wrapper:144 | [84d50e03] === REQUEST COMPLETE ===
+2025-12-24 16:01:05 | INFO     | aievaluation | wrapper:120 | [f93a2cbc] === INCOMING REQUEST ===
+2025-12-24 16:01:05 | INFO     | aievaluation | wrapper:121 | [f93a2cbc] Endpoint: GET /aievaluation/list
+2025-12-24 16:01:05 | INFO     | aievaluation | wrapper:122 | [f93a2cbc] Remote IP: 127.0.0.1
+2025-12-24 16:01:05 | INFO     | aievaluation | wrapper:123 | [f93a2cbc] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:01:05 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:01:05 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:01:05 | INFO     | aievaluation | wrapper:142 | [f93a2cbc] Response Status: 200
+2025-12-24 16:01:05 | DEBUG    | aievaluation | wrapper:143 | [f93a2cbc] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:01:05 | INFO     | aievaluation | wrapper:144 | [f93a2cbc] === REQUEST COMPLETE ===
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:120 | [8463024e] === INCOMING REQUEST ===
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:121 | [8463024e] Endpoint: GET /aievaluation/list
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:122 | [8463024e] Remote IP: 127.0.0.1
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:123 | [8463024e] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:01:35 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:01:35 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:142 | [8463024e] Response Status: 200
+2025-12-24 16:01:35 | DEBUG    | aievaluation | wrapper:143 | [8463024e] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:144 | [8463024e] === REQUEST COMPLETE ===
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:120 | [3b1bdb2a] === INCOMING REQUEST ===
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:121 | [3b1bdb2a] Endpoint: GET /aievaluation/list
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:122 | [3b1bdb2a] Remote IP: 127.0.0.1
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:123 | [3b1bdb2a] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:01:35 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:01:35 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:142 | [3b1bdb2a] Response Status: 200
+2025-12-24 16:01:35 | DEBUG    | aievaluation | wrapper:143 | [3b1bdb2a] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:01:35 | INFO     | aievaluation | wrapper:144 | [3b1bdb2a] === REQUEST COMPLETE ===
+2025-12-24 16:02:15 | INFO     | aievaluation | wrapper:120 | [1c866f07] === INCOMING REQUEST ===
+2025-12-24 16:02:15 | INFO     | aievaluation | wrapper:121 | [1c866f07] Endpoint: GET /aievaluation/list
+2025-12-24 16:02:15 | INFO     | aievaluation | wrapper:122 | [1c866f07] Remote IP: 127.0.0.1
+2025-12-24 16:02:15 | INFO     | aievaluation | wrapper:123 | [1c866f07] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:02:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:02:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:02:15 | INFO     | aievaluation | wrapper:142 | [1c866f07] Response Status: 200
+2025-12-24 16:02:15 | DEBUG    | aievaluation | wrapper:143 | [1c866f07] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:02:15 | INFO     | aievaluation | wrapper:144 | [1c866f07] === REQUEST COMPLETE ===
+2025-12-24 16:02:45 | INFO     | aievaluation | wrapper:120 | [af93b7a0] === INCOMING REQUEST ===
+2025-12-24 16:02:45 | INFO     | aievaluation | wrapper:121 | [af93b7a0] Endpoint: GET /aievaluation/list
+2025-12-24 16:02:45 | INFO     | aievaluation | wrapper:122 | [af93b7a0] Remote IP: 127.0.0.1
+2025-12-24 16:02:45 | INFO     | aievaluation | wrapper:123 | [af93b7a0] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:02:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:02:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:02:45 | INFO     | aievaluation | wrapper:142 | [af93b7a0] Response Status: 200
+2025-12-24 16:02:45 | DEBUG    | aievaluation | wrapper:143 | [af93b7a0] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:02:45 | INFO     | aievaluation | wrapper:144 | [af93b7a0] === REQUEST COMPLETE ===
+2025-12-24 16:03:15 | INFO     | aievaluation | wrapper:120 | [1647ebc6] === INCOMING REQUEST ===
+2025-12-24 16:03:15 | INFO     | aievaluation | wrapper:121 | [1647ebc6] Endpoint: GET /aievaluation/list
+2025-12-24 16:03:15 | INFO     | aievaluation | wrapper:122 | [1647ebc6] Remote IP: 127.0.0.1
+2025-12-24 16:03:15 | INFO     | aievaluation | wrapper:123 | [1647ebc6] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:03:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:03:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:03:15 | INFO     | aievaluation | wrapper:142 | [1647ebc6] Response Status: 200
+2025-12-24 16:03:15 | DEBUG    | aievaluation | wrapper:143 | [1647ebc6] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:03:15 | INFO     | aievaluation | wrapper:144 | [1647ebc6] === REQUEST COMPLETE ===
+2025-12-24 16:03:45 | INFO     | aievaluation | wrapper:120 | [8adfd320] === INCOMING REQUEST ===
+2025-12-24 16:03:45 | INFO     | aievaluation | wrapper:121 | [8adfd320] Endpoint: GET /aievaluation/list
+2025-12-24 16:03:45 | INFO     | aievaluation | wrapper:122 | [8adfd320] Remote IP: 127.0.0.1
+2025-12-24 16:03:45 | INFO     | aievaluation | wrapper:123 | [8adfd320] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:03:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:03:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:03:45 | INFO     | aievaluation | wrapper:142 | [8adfd320] Response Status: 200
+2025-12-24 16:03:45 | DEBUG    | aievaluation | wrapper:143 | [8adfd320] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:03:45 | INFO     | aievaluation | wrapper:144 | [8adfd320] === REQUEST COMPLETE ===
+2025-12-24 16:04:15 | INFO     | aievaluation | wrapper:120 | [5abdb145] === INCOMING REQUEST ===
+2025-12-24 16:04:15 | INFO     | aievaluation | wrapper:121 | [5abdb145] Endpoint: GET /aievaluation/list
+2025-12-24 16:04:15 | INFO     | aievaluation | wrapper:122 | [5abdb145] Remote IP: 127.0.0.1
+2025-12-24 16:04:15 | INFO     | aievaluation | wrapper:123 | [5abdb145] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:04:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:04:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:04:15 | INFO     | aievaluation | wrapper:142 | [5abdb145] Response Status: 200
+2025-12-24 16:04:15 | DEBUG    | aievaluation | wrapper:143 | [5abdb145] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:04:15 | INFO     | aievaluation | wrapper:144 | [5abdb145] === REQUEST COMPLETE ===
+2025-12-24 16:04:45 | INFO     | aievaluation | wrapper:120 | [a9e668a7] === INCOMING REQUEST ===
+2025-12-24 16:04:45 | INFO     | aievaluation | wrapper:121 | [a9e668a7] Endpoint: GET /aievaluation/list
+2025-12-24 16:04:45 | INFO     | aievaluation | wrapper:122 | [a9e668a7] Remote IP: 127.0.0.1
+2025-12-24 16:04:45 | INFO     | aievaluation | wrapper:123 | [a9e668a7] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:04:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:04:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:04:45 | INFO     | aievaluation | wrapper:142 | [a9e668a7] Response Status: 200
+2025-12-24 16:04:45 | DEBUG    | aievaluation | wrapper:143 | [a9e668a7] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:04:45 | INFO     | aievaluation | wrapper:144 | [a9e668a7] === REQUEST COMPLETE ===
+2025-12-24 16:05:15 | INFO     | aievaluation | wrapper:120 | [c70b781d] === INCOMING REQUEST ===
+2025-12-24 16:05:15 | INFO     | aievaluation | wrapper:121 | [c70b781d] Endpoint: GET /aievaluation/list
+2025-12-24 16:05:15 | INFO     | aievaluation | wrapper:122 | [c70b781d] Remote IP: 127.0.0.1
+2025-12-24 16:05:15 | INFO     | aievaluation | wrapper:123 | [c70b781d] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:05:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:05:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:05:15 | INFO     | aievaluation | wrapper:142 | [c70b781d] Response Status: 200
+2025-12-24 16:05:15 | DEBUG    | aievaluation | wrapper:143 | [c70b781d] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:05:15 | INFO     | aievaluation | wrapper:144 | [c70b781d] === REQUEST COMPLETE ===
+2025-12-24 16:05:45 | INFO     | aievaluation | wrapper:120 | [5daf762e] === INCOMING REQUEST ===
+2025-12-24 16:05:45 | INFO     | aievaluation | wrapper:121 | [5daf762e] Endpoint: GET /aievaluation/list
+2025-12-24 16:05:45 | INFO     | aievaluation | wrapper:122 | [5daf762e] Remote IP: 127.0.0.1
+2025-12-24 16:05:45 | INFO     | aievaluation | wrapper:123 | [5daf762e] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:05:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:05:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:05:45 | INFO     | aievaluation | wrapper:142 | [5daf762e] Response Status: 200
+2025-12-24 16:05:45 | DEBUG    | aievaluation | wrapper:143 | [5daf762e] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:05:45 | INFO     | aievaluation | wrapper:144 | [5daf762e] === REQUEST COMPLETE ===
+2025-12-24 16:06:15 | INFO     | aievaluation | wrapper:120 | [fca68364] === INCOMING REQUEST ===
+2025-12-24 16:06:15 | INFO     | aievaluation | wrapper:121 | [fca68364] Endpoint: GET /aievaluation/list
+2025-12-24 16:06:15 | INFO     | aievaluation | wrapper:122 | [fca68364] Remote IP: 127.0.0.1
+2025-12-24 16:06:15 | INFO     | aievaluation | wrapper:123 | [fca68364] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:06:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:06:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:06:15 | INFO     | aievaluation | wrapper:142 | [fca68364] Response Status: 200
+2025-12-24 16:06:15 | DEBUG    | aievaluation | wrapper:143 | [fca68364] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:06:15 | INFO     | aievaluation | wrapper:144 | [fca68364] === REQUEST COMPLETE ===
+2025-12-24 16:06:45 | INFO     | aievaluation | wrapper:120 | [d14579b6] === INCOMING REQUEST ===
+2025-12-24 16:06:45 | INFO     | aievaluation | wrapper:121 | [d14579b6] Endpoint: GET /aievaluation/list
+2025-12-24 16:06:45 | INFO     | aievaluation | wrapper:122 | [d14579b6] Remote IP: 127.0.0.1
+2025-12-24 16:06:45 | INFO     | aievaluation | wrapper:123 | [d14579b6] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:06:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:06:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:06:45 | INFO     | aievaluation | wrapper:142 | [d14579b6] Response Status: 200
+2025-12-24 16:06:45 | DEBUG    | aievaluation | wrapper:143 | [d14579b6] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:06:45 | INFO     | aievaluation | wrapper:144 | [d14579b6] === REQUEST COMPLETE ===
+2025-12-24 16:07:15 | INFO     | aievaluation | wrapper:120 | [cd69ef91] === INCOMING REQUEST ===
+2025-12-24 16:07:15 | INFO     | aievaluation | wrapper:121 | [cd69ef91] Endpoint: GET /aievaluation/list
+2025-12-24 16:07:15 | INFO     | aievaluation | wrapper:122 | [cd69ef91] Remote IP: 127.0.0.1
+2025-12-24 16:07:15 | INFO     | aievaluation | wrapper:123 | [cd69ef91] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:07:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:07:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:07:15 | INFO     | aievaluation | wrapper:142 | [cd69ef91] Response Status: 200
+2025-12-24 16:07:15 | DEBUG    | aievaluation | wrapper:143 | [cd69ef91] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:07:15 | INFO     | aievaluation | wrapper:144 | [cd69ef91] === REQUEST COMPLETE ===
+2025-12-24 16:07:45 | INFO     | aievaluation | wrapper:120 | [4b9dcc0e] === INCOMING REQUEST ===
+2025-12-24 16:07:45 | INFO     | aievaluation | wrapper:121 | [4b9dcc0e] Endpoint: GET /aievaluation/list
+2025-12-24 16:07:45 | INFO     | aievaluation | wrapper:122 | [4b9dcc0e] Remote IP: 127.0.0.1
+2025-12-24 16:07:45 | INFO     | aievaluation | wrapper:123 | [4b9dcc0e] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:07:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:07:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:07:45 | INFO     | aievaluation | wrapper:142 | [4b9dcc0e] Response Status: 200
+2025-12-24 16:07:45 | DEBUG    | aievaluation | wrapper:143 | [4b9dcc0e] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:07:45 | INFO     | aievaluation | wrapper:144 | [4b9dcc0e] === REQUEST COMPLETE ===
+2025-12-24 16:08:15 | INFO     | aievaluation | wrapper:120 | [efd05b99] === INCOMING REQUEST ===
+2025-12-24 16:08:15 | INFO     | aievaluation | wrapper:121 | [efd05b99] Endpoint: GET /aievaluation/list
+2025-12-24 16:08:15 | INFO     | aievaluation | wrapper:122 | [efd05b99] Remote IP: 127.0.0.1
+2025-12-24 16:08:15 | INFO     | aievaluation | wrapper:123 | [efd05b99] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:08:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:08:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:08:15 | INFO     | aievaluation | wrapper:142 | [efd05b99] Response Status: 200
+2025-12-24 16:08:15 | DEBUG    | aievaluation | wrapper:143 | [efd05b99] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:08:15 | INFO     | aievaluation | wrapper:144 | [efd05b99] === REQUEST COMPLETE ===
+2025-12-24 16:08:45 | INFO     | aievaluation | wrapper:120 | [d430b29f] === INCOMING REQUEST ===
+2025-12-24 16:08:45 | INFO     | aievaluation | wrapper:121 | [d430b29f] Endpoint: GET /aievaluation/list
+2025-12-24 16:08:45 | INFO     | aievaluation | wrapper:122 | [d430b29f] Remote IP: 127.0.0.1
+2025-12-24 16:08:45 | INFO     | aievaluation | wrapper:123 | [d430b29f] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:08:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:08:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:08:45 | INFO     | aievaluation | wrapper:142 | [d430b29f] Response Status: 200
+2025-12-24 16:08:45 | DEBUG    | aievaluation | wrapper:143 | [d430b29f] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:08:45 | INFO     | aievaluation | wrapper:144 | [d430b29f] === REQUEST COMPLETE ===
+2025-12-24 16:09:15 | INFO     | aievaluation | wrapper:120 | [78b3c43f] === INCOMING REQUEST ===
+2025-12-24 16:09:15 | INFO     | aievaluation | wrapper:121 | [78b3c43f] Endpoint: GET /aievaluation/list
+2025-12-24 16:09:15 | INFO     | aievaluation | wrapper:122 | [78b3c43f] Remote IP: 127.0.0.1
+2025-12-24 16:09:15 | INFO     | aievaluation | wrapper:123 | [78b3c43f] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:09:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:09:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:09:15 | INFO     | aievaluation | wrapper:142 | [78b3c43f] Response Status: 200
+2025-12-24 16:09:15 | DEBUG    | aievaluation | wrapper:143 | [78b3c43f] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:09:15 | INFO     | aievaluation | wrapper:144 | [78b3c43f] === REQUEST COMPLETE ===
+2025-12-24 16:09:45 | INFO     | aievaluation | wrapper:120 | [bc5644e0] === INCOMING REQUEST ===
+2025-12-24 16:09:45 | INFO     | aievaluation | wrapper:121 | [bc5644e0] Endpoint: GET /aievaluation/list
+2025-12-24 16:09:45 | INFO     | aievaluation | wrapper:122 | [bc5644e0] Remote IP: 127.0.0.1
+2025-12-24 16:09:45 | INFO     | aievaluation | wrapper:123 | [bc5644e0] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:09:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:09:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:09:45 | INFO     | aievaluation | wrapper:142 | [bc5644e0] Response Status: 200
+2025-12-24 16:09:45 | DEBUG    | aievaluation | wrapper:143 | [bc5644e0] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:09:45 | INFO     | aievaluation | wrapper:144 | [bc5644e0] === REQUEST COMPLETE ===
+2025-12-24 16:10:15 | INFO     | aievaluation | wrapper:120 | [c45954d4] === INCOMING REQUEST ===
+2025-12-24 16:10:15 | INFO     | aievaluation | wrapper:121 | [c45954d4] Endpoint: GET /aievaluation/list
+2025-12-24 16:10:15 | INFO     | aievaluation | wrapper:122 | [c45954d4] Remote IP: 127.0.0.1
+2025-12-24 16:10:15 | INFO     | aievaluation | wrapper:123 | [c45954d4] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:10:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:10:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:10:15 | INFO     | aievaluation | wrapper:142 | [c45954d4] Response Status: 200
+2025-12-24 16:10:15 | DEBUG    | aievaluation | wrapper:143 | [c45954d4] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:10:15 | INFO     | aievaluation | wrapper:144 | [c45954d4] === REQUEST COMPLETE ===
+2025-12-24 16:10:45 | INFO     | aievaluation | wrapper:120 | [3303337a] === INCOMING REQUEST ===
+2025-12-24 16:10:45 | INFO     | aievaluation | wrapper:121 | [3303337a] Endpoint: GET /aievaluation/list
+2025-12-24 16:10:45 | INFO     | aievaluation | wrapper:122 | [3303337a] Remote IP: 127.0.0.1
+2025-12-24 16:10:45 | INFO     | aievaluation | wrapper:123 | [3303337a] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:10:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:10:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:10:45 | INFO     | aievaluation | wrapper:142 | [3303337a] Response Status: 200
+2025-12-24 16:10:45 | DEBUG    | aievaluation | wrapper:143 | [3303337a] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:10:45 | INFO     | aievaluation | wrapper:144 | [3303337a] === REQUEST COMPLETE ===
+2025-12-24 16:11:15 | INFO     | aievaluation | wrapper:120 | [3e0394ee] === INCOMING REQUEST ===
+2025-12-24 16:11:15 | INFO     | aievaluation | wrapper:121 | [3e0394ee] Endpoint: GET /aievaluation/list
+2025-12-24 16:11:15 | INFO     | aievaluation | wrapper:122 | [3e0394ee] Remote IP: 127.0.0.1
+2025-12-24 16:11:15 | INFO     | aievaluation | wrapper:123 | [3e0394ee] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:11:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:11:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:11:15 | INFO     | aievaluation | wrapper:142 | [3e0394ee] Response Status: 200
+2025-12-24 16:11:15 | DEBUG    | aievaluation | wrapper:143 | [3e0394ee] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:11:15 | INFO     | aievaluation | wrapper:144 | [3e0394ee] === REQUEST COMPLETE ===
+2025-12-24 16:11:45 | INFO     | aievaluation | wrapper:120 | [8f15ce2b] === INCOMING REQUEST ===
+2025-12-24 16:11:45 | INFO     | aievaluation | wrapper:121 | [8f15ce2b] Endpoint: GET /aievaluation/list
+2025-12-24 16:11:45 | INFO     | aievaluation | wrapper:122 | [8f15ce2b] Remote IP: 127.0.0.1
+2025-12-24 16:11:45 | INFO     | aievaluation | wrapper:123 | [8f15ce2b] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:11:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:11:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:11:45 | INFO     | aievaluation | wrapper:142 | [8f15ce2b] Response Status: 200
+2025-12-24 16:11:45 | DEBUG    | aievaluation | wrapper:143 | [8f15ce2b] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:11:45 | INFO     | aievaluation | wrapper:144 | [8f15ce2b] === REQUEST COMPLETE ===
+2025-12-24 16:12:15 | INFO     | aievaluation | wrapper:120 | [cac16d05] === INCOMING REQUEST ===
+2025-12-24 16:12:15 | INFO     | aievaluation | wrapper:121 | [cac16d05] Endpoint: GET /aievaluation/list
+2025-12-24 16:12:15 | INFO     | aievaluation | wrapper:122 | [cac16d05] Remote IP: 127.0.0.1
+2025-12-24 16:12:15 | INFO     | aievaluation | wrapper:123 | [cac16d05] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:12:15 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:12:15 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:12:15 | INFO     | aievaluation | wrapper:142 | [cac16d05] Response Status: 200
+2025-12-24 16:12:15 | DEBUG    | aievaluation | wrapper:143 | [cac16d05] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:12:15 | INFO     | aievaluation | wrapper:144 | [cac16d05] === REQUEST COMPLETE ===
+2025-12-24 16:12:45 | INFO     | aievaluation | wrapper:120 | [560aca6e] === INCOMING REQUEST ===
+2025-12-24 16:12:45 | INFO     | aievaluation | wrapper:121 | [560aca6e] Endpoint: GET /aievaluation/list
+2025-12-24 16:12:45 | INFO     | aievaluation | wrapper:122 | [560aca6e] Remote IP: 127.0.0.1
+2025-12-24 16:12:45 | INFO     | aievaluation | wrapper:123 | [560aca6e] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-24 16:12:45 | INFO     | aievaluation | list_evaluations:374 | Listing all evaluation runs
+2025-12-24 16:12:45 | INFO     | aievaluation | list_evaluations:394 | Found 4 evaluation runs
+2025-12-24 16:12:45 | INFO     | aievaluation | wrapper:142 | [560aca6e] Response Status: 200
+2025-12-24 16:12:45 | DEBUG    | aievaluation | wrapper:143 | [560aca6e] Response Data: {'runs': [{'model': 'AlphaFold2', 'run_id': 'd2e843465a5b4c59bdc60e257985f6a6', 'started_at': '2025-12-24T20:53:09.943403', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '6f514b05e8624930ad7d0f2b141abb82', 'started_at': '2025-12-24T20:52:41.948258', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '464da9e778ae434397617015f344e599', 'started_at': '2025-12-24T20:48:02.085963', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': '771bcc79b35e424ca47e3197fb537320', 'started_at': '2025-12-24T20:40:53.907764', 'status': 'initiated'}], 'total': 4}
+2025-12-24 16:12:45 | INFO     | aievaluation | wrapper:144 | [560aca6e] === REQUEST COMPLETE ===
