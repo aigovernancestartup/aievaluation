@@ -60,12 +60,12 @@ Wait for all packages to install.
 **Still in Terminal 2**, run:
 ```bash
 cd /Users/anmolkumar/Personal/Zenjin/aievaluation-main/backend
-uvicorn app:app --reload --port 8000
+uvicorn app:app --reload --port 5008
 ```
 
 You should see:
 ```
-INFO:     Uvicorn running on http://127.0.0.1:8000
+INFO:     Uvicorn running on http://127.0.0.1:5008
 INFO:     Application startup complete.
 ```
 
@@ -87,7 +87,7 @@ python test_api_simple.py
 
 Open your browser and go to:
 ```
-http://localhost:8000/docs
+http://localhost:5008/docs
 ```
 
 This opens FastAPI's interactive API documentation where you can test endpoints directly.
@@ -95,7 +95,7 @@ This opens FastAPI's interactive API documentation where you can test endpoints 
 ### Option C: Use curl
 
 ```bash
-curl -X POST http://localhost:8000/v1/evaluate \
+curl -X POST http://localhost:5008/v1/evaluate \
   -H "Content-Type: application/json" \
   -d '{
     "evaluation_object": "test",
@@ -159,11 +159,11 @@ curl -X POST http://localhost:8000/v1/evaluate \
 ## Quick Reference
 
 **Terminal 1:** `ollama serve` (keep running)  
-**Terminal 2:** `uvicorn app:app --reload --port 8000` (keep running)  
+**Terminal 2:** `uvicorn app:app --reload --port 5008` (keep running)  
 **Terminal 3:** Run tests or make API calls
 
-**API URL:** `http://localhost:8000`  
-**API Docs:** `http://localhost:8000/docs`  
+**API URL:** `http://localhost:5008`  
+**API Docs:** `http://localhost:5008/docs`  
 **Ollama:** `http://localhost:11434`
 
 ---

@@ -31,11 +31,11 @@
 1. **Start the FastAPI server**:
    ```bash
    cd backend
-   uvicorn app:app --reload --port 8000
+   uvicorn app:app --reload --port 5008
    ```
 
 2. **Test the API**:
-   - Open browser: `http://localhost:8000/docs` (FastAPI auto-docs)
+   - Open browser: `http://localhost:5008/docs` (FastAPI auto-docs)
    - Or run: `python test_api_simple.py`
 
 ## Configuration

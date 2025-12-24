@@ -21,7 +21,7 @@ curl http://localhost:11434/api/tags
 ```bash
 # In Terminal 2: Start the FastAPI server
 cd backend
-uvicorn app:app --reload --port 8000
+uvicorn app:app --reload --port 5008
 ```
 
 ## 4. Test the API
@@ -32,12 +32,12 @@ cd backend
 python test_api_simple.py
 ```
 
-Or open in browser: `http://localhost:8000/docs`
+Or open in browser: `http://localhost:5008/docs`
 
 ## Troubleshooting
 
 - **"Connection refused" or timeout errors**: Make sure Ollama is running (`ollama serve`)
 - **"Model not found"**: Run `ollama pull deepseek-r1:1.5b`
-- **API errors**: Check that both Ollama (port 11434) and FastAPI (port 8000) are running
+- **API errors**: Check that both Ollama (port 11434) and FastAPI (port 5008) are running
 
 

@@ -76,7 +76,7 @@ If you have a GPU, Ollama will use it automatically and be much faster.
 See what's happening on the backend:
 
 **Check uvicorn logs:**
-Look at the terminal where you ran `uvicorn app:app --port 8000`
+Look at the terminal where you ran `uvicorn app:app --port 5008`
 
 **Check Ollama logs:**
 Look at the terminal where you ran `ollama serve`
@@ -92,7 +92,7 @@ To verify the API works without waiting for the model:
 Or **test the API endpoint directly**:
 ```bash
 # This should respond immediately (even if metric fails)
-curl -X POST http://localhost:8000/v1/evaluate \
+curl -X POST http://localhost:5008/v1/evaluate \
   -H "Content-Type: application/json" \
   -d '{
     "evaluation_object": "test",
@@ -119,7 +119,7 @@ curl -X POST http://localhost:8000/v1/evaluate \
 
 ### If Still Timing Out:
 - Check Ollama is running: `curl http://localhost:11434/api/tags`
-- Check backend is running: `curl http://localhost:8000/docs`
+- Check backend is running: `curl http://localhost:5008/docs`
 - Try warming up the model first (Solution 1)
 - Consider using a faster model (Solution 4)
 
@@ -132,7 +132,7 @@ curl -X POST http://localhost:8000/v1/evaluate \
 curl http://localhost:11434/api/tags
 
 # 2. Check backend is running  
-curl http://localhost:8000/docs
+curl http://localhost:5008/docs
 
 # 3. Warm up model
 ollama run deepseek-r1:1.5b "test"

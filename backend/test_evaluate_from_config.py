@@ -4,7 +4,7 @@
 import requests
 import json
 
-API_URL = "http://localhost:8000/v1/evaluate-from-config"
+API_URL = "http://localhost:5008/v1/evaluate-from-config"
 
 # Test 1: Use default config with specific goals and metrics
 print("="*60)
@@ -76,7 +76,7 @@ print("="*60)
 
 # This would require a file upload - showing the structure
 print("To test file upload, use:")
-print("  curl -X POST http://localhost:8000/v1/evaluate-from-config \\")
+print("  curl -X POST http://localhost:5008/v1/evaluate-from-config \\")
 print("    -F 'evaluation_id=test-003' \\")
 print("    -F 'evaluation_name=Custom Config Test' \\")
 print("    -F 'goals=Quality & Accuracy' \\")

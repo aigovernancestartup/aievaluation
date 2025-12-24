@@ -5,7 +5,7 @@ import requests
 import json
 
 # this is the API URL for the backend
-API_URL = "http://localhost:8000/v1/evaluate"
+API_URL = "http://localhost:5008/v1/evaluate"
 
 # Minimal test payload
 payload = {

@@ -4,7 +4,7 @@
 import requests
 import json
 
-API_URL = "http://localhost:8000/v1/evaluate"
+API_URL = "http://localhost:5008/v1/evaluate"
 
 # Test with a metric that doesn't require LLM (if available)
 # Or test with a simpler payload to verify API works
@@ -90,7 +90,7 @@ except requests.exceptions.Timeout:
 except requests.exceptions.ConnectionError:
     print("\n❌ CONNECTION ERROR: Cannot connect to the API server.")
     print("\nMake sure the backend is running:")
-    print("  cd backend && uvicorn app:app --reload --port 8000")
+    print("  cd backend && uvicorn app:app --reload --port 5008")
     
 except Exception as e:
     print(f"\n❌ Error: {type(e).__name__}: {e}")

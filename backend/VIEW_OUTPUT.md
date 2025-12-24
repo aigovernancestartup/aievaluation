@@ -14,11 +14,11 @@ python test_api_simple.py
 ```
 
 ### View in Browser:
-Go to `http://localhost:8000/docs` and use the interactive API tester
+Go to `http://localhost:5008/docs` and use the interactive API tester
 
 ### View with curl:
 ```bash
-curl -X POST http://localhost:8000/v1/evaluate \
+curl -X POST http://localhost:5008/v1/evaluate \
   -H "Content-Type: application/json" \
   -d @your_payload.json | jq
 ```

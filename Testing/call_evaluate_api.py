@@ -6,13 +6,13 @@ Usage:
     python call_evaluate_api.py
 
 Make sure the server is running:
-    cd backend && python3 -m uvicorn app:app --reload --port 8000
+    cd backend && python3 -m uvicorn app:app --reload --port 5008
 """
 
 import requests
 import json
 
-API_URL = "http://localhost:8000/v1/evaluate"
+API_URL = "http://localhost:5008/v1/evaluate"
 
 
 def call_evaluate():
@@ -95,7 +95,7 @@ def call_evaluate():
     except requests.exceptions.ConnectionError:
         print("\n❌ ERROR: Could not connect to the server.")
         print("Make sure the API is running:")
-        print("  cd backend && python3 -m uvicorn app:app --reload --port 8000")
+        print("  cd backend && python3 -m uvicorn app:app --reload --port 5008")
     except requests.exceptions.HTTPError as e:
         print(f"\n❌ HTTP Error: {e}")
         print(f"Response: {response.text}")
