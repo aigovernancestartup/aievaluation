@@ -9,7 +9,7 @@ Usage:
     python flask_api.py
 
 API Endpoint:
-    POST /aievaluation
+    POST /v1/aievaluation
     
 Parameters (JSON body):
     - model: Name of the model to evaluate (e.g., "deepseek-r1:1.5b", "gpt-4")
@@ -18,7 +18,7 @@ Parameters (JSON body):
     - testingconfig_file: Path to the testing configuration file
 
 Example:
-    curl -X POST http://localhost:5009/aievaluation \
+    curl -X POST http://localhost:5009/v1/aievaluation \
         -H "Content-Type: application/json" \
         -d '{
             "model": "deepseek-r1:1.5b",
@@ -28,7 +28,7 @@ Example:
         }'
 """
 
-from flask import Flask, request, jsonify
+from flask import Flask, Blueprint, request, jsonify
 from flask_cors import CORS
 import subprocess
 import json
@@ -104,7 +104,17 @@ logger = setup_logging()
 # Flask App
 # =============================================================================
 app = Flask(__name__)
-CORS(app)  # Enable CORS for cross-origin requests
+
+# Enable CORS with explicit configuration for cross-origin requests
+# This handles OPTIONS preflight requests automatically
+CORS(app, 
+     origins=["*"],  # Allow all origins (or specify: ["http://localhost:8080", "http://localhost:3000"])
+     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+     allow_headers=["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
+     expose_headers=["Content-Type", "X-Request-Id"],
+     supports_credentials=True,
+     max_age=86400  # Cache preflight response for 24 hours
+)
 
 
 # =============================================================================
@@ -156,6 +166,7 @@ def log_request(func):
 # Endpoints
 # =============================================================================
 @app.route("/", methods=["GET"])
+@app.route("/v1", methods=["GET"])
 @log_request
 def health_check():
     """Health check endpoint."""
@@ -164,12 +175,18 @@ def health_check():
         "status": "healthy",
         "service": "AI Evaluation API",
         "version": "1.0.0",
+        "api_base_path": "/v1/aievaluation",
         "timestamp": datetime.utcnow().isoformat(),
-        "log_file": str(LOG_FILE)
+        "endpoints": {
+            "evaluate": "POST /v1/aievaluation",
+            "status": "GET /v1/aievaluation/<run_id>",
+            "list": "GET /v1/aievaluation/list",
+            "logs": "GET /v1/aievaluation/logs"
+        }
     })
 
 
-@app.route("/aievaluation", methods=["POST"])
+@app.route("/v1/aievaluation", methods=["POST"])
 @log_request
 def run_evaluation():
     """
@@ -329,7 +346,7 @@ def run_evaluation():
         }), 500
 
 
-@app.route("/aievaluation/<run_id>", methods=["GET"])
+@app.route("/v1/aievaluation/<run_id>", methods=["GET"])
 @log_request
 def get_evaluation_status(run_id):
     """Get the status of a specific evaluation run."""
@@ -367,7 +384,7 @@ def get_evaluation_status(run_id):
     return jsonify(response)
 
 
-@app.route("/aievaluation/list", methods=["GET"])
+@app.route("/v1/aievaluation/list", methods=["GET"])
 @log_request
 def list_evaluations():
     """List all evaluation runs."""
@@ -399,7 +416,7 @@ def list_evaluations():
     })
 
 
-@app.route("/logs", methods=["GET"])
+@app.route("/v1/aievaluation/logs", methods=["GET"])
 @log_request
 def get_logs():
     """Get recent log entries."""
@@ -559,8 +576,8 @@ def execute_evaluation(run_id, model, evaluation_goals, metrics, testingconfig_f
         logger.debug(f"[{run_id}] API Payload: {json.dumps(api_payload, indent=2)}")
         
         # Note: Uncomment to actually call the FastAPI backend
-        # logger.info(f"[{run_id}] Calling FastAPI backend at http://localhost:8000/v1/evaluate")
-        # response = req_lib.post("http://localhost:8000/v1/evaluate", json=api_payload, timeout=300)
+        # logger.info(f"[{run_id}] Calling FastAPI backend at http://localhost:8000/v1/aievaluation/evaluate")
+        # response = req_lib.post("http://localhost:8000/v1/aievaluation/evaluate", json=api_payload, timeout=300)
         # result["api_response"] = response.json()
         # logger.info(f"[{run_id}] FastAPI response status: {response.status_code}")
         
@@ -605,11 +622,11 @@ if __name__ == "__main__":
     print(f"Log file: {LOG_FILE}")
     print()
     print("Endpoints:")
-    print("  GET  /                    - Health check")
-    print("  POST /aievaluation        - Run evaluation")
-    print("  GET  /aievaluation/<id>   - Get evaluation status")
-    print("  GET  /aievaluation/list   - List all evaluations")
-    print("  GET  /logs                - View recent logs")
+    print("  GET  /                        - Health check")
+    print("  POST /v1/aievaluation         - Run evaluation")
+    print("  GET  /v1/aievaluation/<id>    - Get evaluation status")
+    print("  GET  /v1/aievaluation/list    - List all evaluations")
+    print("  GET  /v1/aievaluation/logs    - View recent logs")
     print("=" * 60)
     
     app.run(host="0.0.0.0", port=5009, debug=True)

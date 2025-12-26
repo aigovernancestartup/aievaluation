@@ -95,7 +95,7 @@ This opens FastAPI's interactive API documentation where you can test endpoints 
 ### Option C: Use curl
 
 ```bash
-curl -X POST http://localhost:5008/v1/evaluate \
+curl -X POST http://localhost:5008/v1/aievaluation/evaluate \
   -H "Content-Type: application/json" \
   -d '{
     "evaluation_object": "test",

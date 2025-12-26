@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to call the /v1/evaluate endpoint of the AI Evaluation Engine.
+Script to call the /v1/aievaluation/evaluate endpoint of the AI Evaluation Engine.
 
 Usage:
     python call_evaluate_api.py
@@ -12,7 +12,7 @@ Make sure the server is running:
 import requests
 import json
 
-API_URL = "http://localhost:5008/v1/evaluate"
+API_URL = "http://localhost:5008/v1/aievaluation/evaluate"
 
 
 def call_evaluate():
@@ -58,7 +58,7 @@ def call_evaluate():
     }
 
     print("=" * 60)
-    print("Calling POST /v1/evaluate")
+    print("Calling POST /v1/aievaluation/evaluate")
     print("=" * 60)
     print("\nRequest payload:")
     print(json.dumps(payload, indent=2))

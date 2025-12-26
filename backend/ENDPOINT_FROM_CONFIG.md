@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `/v1/evaluate-from-config` endpoint allows you to run evaluations using test cases from a configuration file. This endpoint is designed for frontend integration and supports:
+The `/v1/aievaluation/evaluate-from-config` endpoint allows you to run evaluations using test cases from a configuration file. This endpoint is designed for frontend integration and supports:
 
 - Using a default evaluation config file
 - Uploading a custom evaluation config file
@@ -11,7 +11,7 @@ The `/v1/evaluate-from-config` endpoint allows you to run evaluations using test
 
 ## Endpoint
 
-**POST** `/v1/evaluate-from-config`
+**POST** `/v1/aievaluation/evaluate-from-config`
 
 ## Request Format
 
@@ -39,7 +39,7 @@ This endpoint accepts `multipart/form-data` (for file uploads) or `application/x
 
 ## Response Format
 
-Same as `/v1/evaluate` endpoint:
+Same as `/v1/aievaluation/evaluate` endpoint:
 
 ```json
 {
@@ -65,7 +65,7 @@ Same as `/v1/evaluate` endpoint:
 ### Example 1: Using Default Config with Filters
 
 ```bash
-curl -X POST http://localhost:5008/v1/evaluate-from-config \
+curl -X POST http://localhost:5008/v1/aievaluation/evaluate-from-config \
   -F "evaluation_id=eval-001" \
   -F "evaluation_name=Quality Test" \
   -F "goals=Quality & Accuracy" \
@@ -78,7 +78,7 @@ curl -X POST http://localhost:5008/v1/evaluate-from-config \
 ### Example 2: Using Default Config (All Goals/Metrics)
 
 ```bash
-curl -X POST http://localhost:5008/v1/evaluate-from-config \
+curl -X POST http://localhost:5008/v1/aievaluation/evaluate-from-config \
   -F "evaluation_id=eval-002" \
   -F "evaluation_name=Full Evaluation"
 ```
@@ -86,7 +86,7 @@ curl -X POST http://localhost:5008/v1/evaluate-from-config \
 ### Example 3: Upload Custom Config File
 
 ```bash
-curl -X POST http://localhost:5008/v1/evaluate-from-config \
+curl -X POST http://localhost:5008/v1/aievaluation/evaluate-from-config \
   -F "evaluation_id=eval-003" \
   -F "evaluation_name=Custom Evaluation" \
   -F "goals=Quality & Accuracy" \
@@ -111,7 +111,7 @@ data = {
 }
 
 response = requests.post(
-    "http://localhost:5008/v1/evaluate-from-config",
+    "http://localhost:5008/v1/aievaluation/evaluate-from-config",
     data=data,
     timeout=300
 )
@@ -138,7 +138,7 @@ data = {
 }
 
 response = requests.post(
-    "http://localhost:5008/v1/evaluate-from-config",
+    "http://localhost:5008/v1/aievaluation/evaluate-from-config",
     files=files,
     data=data,
     timeout=300
@@ -203,5 +203,5 @@ See `config_parser.py` for the full mapping.
 - Subsequent evaluations are faster
 - Test cases are extracted from the config based on the specified goals and metrics
 - If goals/metrics are not specified, all test cases are included
-- The endpoint uses the same evaluation engine as `/v1/evaluate`
+- The endpoint uses the same evaluation engine as `/v1/aievaluation/evaluate`
 

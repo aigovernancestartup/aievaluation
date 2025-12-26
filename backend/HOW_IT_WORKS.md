@@ -34,7 +34,7 @@ The AI Evaluation Engine is a FastAPI-based backend that evaluates LLM outputs u
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              CLIENT REQUEST                                  │
-│                         POST /v1/evaluate                                   │
+│                    POST /v1/aievaluation/evaluate                           │
 └─────────────────────────────────────────────────────────────────────────────┘
                                     │
                                     ▼
@@ -113,7 +113,7 @@ The AI Evaluation Engine is a FastAPI-based backend that evaluates LLM outputs u
 **Purpose:** HTTP entry point and request/response handling.
 
 **Responsibilities:**
-- Defines the `/v1/evaluate` POST endpoint
+- Defines the `/v1/aievaluation/evaluate` POST endpoint
 - Validates incoming requests using Pydantic models
 - Loads the metric schema on startup
 - Calls `run_evaluation()` and returns structured responses
@@ -121,7 +121,7 @@ The AI Evaluation Engine is a FastAPI-based backend that evaluates LLM outputs u
 
 **Key Code Flow:**
 ```python
-@app.post("/v1/evaluate")
+@router.post("/evaluate")  # Mounted at /v1/aievaluation
 def evaluate(req: EvaluateRequest):
     # 1. Convert Pydantic models to dicts
     # 2. Call run_evaluation() 
@@ -279,7 +279,7 @@ for each metric in request.metrics:
 ### Request Example
 
 ```json
-POST /v1/evaluate
+POST /v1/aievaluation/evaluate
 {
   "evaluation_object": "customer-support-bot",
   "use_case": "Answer product questions",

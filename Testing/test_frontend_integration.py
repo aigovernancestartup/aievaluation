@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Test script to simulate frontend requests to the backend.
-Tests the /v1/evaluate endpoint with various frontend scenarios.
+Tests the /v1/aievaluation/evaluate endpoint with various frontend scenarios.
 """
 
 import requests
@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 # Backend API URL - matches the FastAPI backend endpoint
-API_URL = "http://localhost:5008/v1/evaluate"
+API_URL = "http://localhost:5008/v1/aievaluation/evaluate"
 DEFAULT_CONFIG_PATH = Path(__file__).parent / "testingconfig" / "evaluation_config.json"
 
 def print_section(title):
@@ -342,7 +342,7 @@ def main():
     """Run all tests."""
     print("\n" + "="*70)
     print("  FRONTEND INTEGRATION TEST SUITE")
-    print("  Testing /v1/evaluate endpoint")
+    print("  Testing /v1/aievaluation/evaluate endpoint")
     print("="*70)
     
     # Check backend health first

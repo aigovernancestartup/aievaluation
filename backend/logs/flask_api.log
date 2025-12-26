@@ -820,3 +820,231 @@
 2025-12-24 16:16:54 | INFO     | aievaluation | <module>:596 | ============================================================
 2025-12-24 16:16:54 | INFO     | aievaluation | <module>:597 | Log file: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/logs/flask_api.log
 2025-12-24 16:16:54 | INFO     | aievaluation | <module>:598 | Artifacts directory: /Users/aruneeshsalhotra/mysw/evals/aievaluation/backend/artifacts
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:601 | ============================================================
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:602 | AI Evaluation API Starting
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:603 | ============================================================
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:604 | Log file: /Users/aruneeshsalhotra/mysw/aievaluation/backend/logs/flask_api.log
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:605 | Artifacts directory: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:601 | ============================================================
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:602 | AI Evaluation API Starting
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:603 | ============================================================
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:604 | Log file: /Users/aruneeshsalhotra/mysw/aievaluation/backend/logs/flask_api.log
+2025-12-26 15:09:21 | INFO     | aievaluation | <module>:605 | Artifacts directory: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:601 | ============================================================
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:602 | AI Evaluation API Starting
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:603 | ============================================================
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:604 | Log file: /Users/aruneeshsalhotra/mysw/aievaluation/backend/logs/flask_api.log
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:605 | Artifacts directory: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:601 | ============================================================
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:602 | AI Evaluation API Starting
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:603 | ============================================================
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:604 | Log file: /Users/aruneeshsalhotra/mysw/aievaluation/backend/logs/flask_api.log
+2025-12-26 15:10:07 | INFO     | aievaluation | <module>:605 | Artifacts directory: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:120 | [e9e534f5] === INCOMING REQUEST ===
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:121 | [e9e534f5] Endpoint: POST /v1/aievaluation
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:122 | [e9e534f5] Remote IP: 127.0.0.1
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:123 | [e9e534f5] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:128 | [e9e534f5] Request Body: {
+  "model": "ALBERT-XXLarge",
+  "evaluation_goals": [
+    "Quality & Accuracy"
+  ],
+  "selected_metrics": {
+    "Quality & Accuracy": [
+      "Task Completion",
+      "Answer Relevancy",
+      "Goal Accuracy"
+    ]
+  },
+  "testing_config_file": "/config/default-testing-config.json",
+  "evaluation_name": "eval5",
+  "evaluation_description": "",
+  "model_id": "927",
+  "total_test_cases": 9
+}
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:208 | ==================================================
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:209 | PARAMETER EXTRACTION
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:210 | ==================================================
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:218 |   model: ALBERT-XXLarge
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:219 |   model type: str
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:220 |   evaluation_goals: ['Quality & Accuracy']
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:221 |   evaluation_goals type: list
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:222 |   metrics: all
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:223 |   metrics type: str
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:224 |   testingconfig_file: None
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:225 |   testingconfig_file type: None
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:248 | Generated run_id: b3d4ec7761b141019e06b5924fb7d97e
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:249 | Started at: 2025-12-26T20:10:41.347939
+2025-12-26 15:10:41 | DEBUG    | aievaluation | build_command_args:446 | Building command arguments...
+2025-12-26 15:10:41 | DEBUG    | aievaluation | build_command_args:451 |   Added --model: ALBERT-XXLarge
+2025-12-26 15:10:41 | DEBUG    | aievaluation | build_command_args:459 |   Added --evaluation-goals: Quality & Accuracy
+2025-12-26 15:10:41 | DEBUG    | aievaluation | build_command_args:467 |   Added --metrics: all
+2025-12-26 15:10:41 | DEBUG    | aievaluation | build_command_args:474 | Final args list: ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'Quality & Accuracy', '--metrics', 'all']
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:259 | ==================================================
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:260 | COMMAND ARGUMENTS BUILT
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:261 | ==================================================
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:263 |   arg[0]: --model
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:263 |   arg[1]: ALBERT-XXLarge
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:263 |   arg[2]: --evaluation-goals
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:263 |   arg[3]: Quality & Accuracy
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:263 |   arg[4]: --metrics
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:263 |   arg[5]: all
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:264 |   Full command: python evaluate.py --model ALBERT-XXLarge --evaluation-goals Quality & Accuracy --metrics all
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:295 | Evaluation request saved to: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts/b3d4ec7761b141019e06b5924fb7d97e/evaluation_request.json
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:298 | ==================================================
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:299 | EXECUTING EVALUATION
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:300 | ==================================================
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:490 | [b3d4ec7761b141019e06b5924fb7d97e] Starting evaluation execution
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:491 | [b3d4ec7761b141019e06b5924fb7d97e] Model: ALBERT-XXLarge
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:492 | [b3d4ec7761b141019e06b5924fb7d97e] Evaluation Goals: ['Quality & Accuracy']
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:493 | [b3d4ec7761b141019e06b5924fb7d97e] Metrics: all
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:494 | [b3d4ec7761b141019e06b5924fb7d97e] Config File: None
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:535 | [b3d4ec7761b141019e06b5924fb7d97e] Building API payload for FastAPI backend
+2025-12-26 15:10:41 | DEBUG    | aievaluation | execute_evaluation:566 | [b3d4ec7761b141019e06b5924fb7d97e] API Payload: {
+  "evaluation_object": "ALBERT-XXLarge",
+  "use_case": "Quality & Accuracy",
+  "context": {
+    "deployment_stage": "dev",
+    "risk_class": "low",
+    "user_impact": "internal"
+  },
+  "run": {
+    "mode": "one_off",
+    "environment": "local"
+  },
+  "metrics": [
+    {
+      "metric_id": "rag.answer_relevancy",
+      "threshold": 0.7,
+      "init_params": {}
+    }
+  ],
+  "test_cases": [
+    {
+      "input": "Test input",
+      "actual_output": "Test output",
+      "retrieval_context": [
+        "Test context"
+      ]
+    }
+  ]
+}
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:591 | [b3d4ec7761b141019e06b5924fb7d97e] Evaluation result saved to: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts/b3d4ec7761b141019e06b5924fb7d97e/evaluation_result.json
+2025-12-26 15:10:41 | INFO     | aievaluation | execute_evaluation:592 | [b3d4ec7761b141019e06b5924fb7d97e] Evaluation execution complete
+2025-12-26 15:10:41 | INFO     | aievaluation | run_evaluation:311 | Evaluation completed with status: completed
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:142 | [e9e534f5] Response Status: 200
+2025-12-26 15:10:41 | DEBUG    | aievaluation | wrapper:143 | [e9e534f5] Response Data: {'artifacts_path': '/Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts/b3d4ec7761b141019e06b5924fb7d97e', 'command_args': ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'Quality & Accuracy', '--metrics', 'all'], 'log_file': '/Users/aruneeshsalhotra/mysw/aievaluation/backend/logs/flask_api.log', 'message': "Evaluation initiated for model 'ALBERT-XXLarge'", 'parameters': {'evaluation_goals': ['Quality & Accuracy'], 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'testingconfig_file': None}, 'result': {'api_payload_preview': {'context': {'deployment_stage': 'dev', 'risk_class': 'low', 'user_impact': 'internal'}, 'evaluation_object': 'ALBERT-XXLarge', 'metrics': [{'init_params': {}, 'metric_id': 'rag.answer_relevancy', 'threshold': 0.7}], 'run': {'environment': 'local', 'mode': 'one_off'}, 'test_cases': [{'actual_output': 'Test output', 'input': 'Test input', 'retrieval_context': ['Test context']}], 'use_case': 'Quality & Accuracy'}, 'command_preview': 'python evaluate.py --model ALBERT-XXLarge --evaluation-goals Quality & Accuracy --metrics all', 'evaluation_goals': ['Quality & Accuracy'], 'executed_at': '2025-12-26T20:10:41.350356', 'integration_note': 'Ready to integrate with FastAPI backend on port 8000', 'message': 'Evaluation parameters validated and logged. Ready for execution.', 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'run_id': 'b3d4ec7761b141019e06b5924fb7d97e', 'status': 'completed', 'testingconfig_file': None}, 'run_id': 'b3d4ec7761b141019e06b5924fb7d97e', 'status': 'completed'}
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:144 | [e9e534f5] === REQUEST COMPLETE ===
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:120 | [e343219b] === INCOMING REQUEST ===
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:121 | [e343219b] Endpoint: GET /v1/aievaluation/list
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:122 | [e343219b] Remote IP: 127.0.0.1
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:123 | [e343219b] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-26 15:10:41 | INFO     | aievaluation | list_evaluations:381 | Listing all evaluation runs
+2025-12-26 15:10:41 | INFO     | aievaluation | list_evaluations:401 | Found 1 evaluation runs
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:142 | [e343219b] Response Status: 200
+2025-12-26 15:10:41 | DEBUG    | aievaluation | wrapper:143 | [e343219b] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': 'b3d4ec7761b141019e06b5924fb7d97e', 'started_at': '2025-12-26T20:10:41.347939', 'status': 'initiated'}], 'total': 1}
+2025-12-26 15:10:41 | INFO     | aievaluation | wrapper:144 | [e343219b] === REQUEST COMPLETE ===
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:120 | [e2c03cd1] === INCOMING REQUEST ===
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:121 | [e2c03cd1] Endpoint: POST /v1/aievaluation
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:122 | [e2c03cd1] Remote IP: 127.0.0.1
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:123 | [e2c03cd1] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:128 | [e2c03cd1] Request Body: {
+  "model": "ALBERT-XXLarge",
+  "evaluation_goals": [
+    "Multi-Turn & Conversational Reliability"
+  ],
+  "selected_metrics": {
+    "Multi-Turn & Conversational Reliability": [
+      "Conversational G-Eval",
+      "Conversation Completeness",
+      "Knowledge Retention"
+    ]
+  },
+  "testing_config_file": "/config/default-testing-config.json",
+  "evaluation_name": "eval6",
+  "evaluation_description": "",
+  "model_id": "927",
+  "total_test_cases": 9
+}
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:208 | ==================================================
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:209 | PARAMETER EXTRACTION
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:210 | ==================================================
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:218 |   model: ALBERT-XXLarge
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:219 |   model type: str
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:220 |   evaluation_goals: ['Multi-Turn & Conversational Reliability']
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:221 |   evaluation_goals type: list
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:222 |   metrics: all
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:223 |   metrics type: str
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:224 |   testingconfig_file: None
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:225 |   testingconfig_file type: None
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:248 | Generated run_id: fb50aea4f8ed4adb8bdd48b707a33cc5
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:249 | Started at: 2025-12-26T20:11:11.236402
+2025-12-26 15:11:11 | DEBUG    | aievaluation | build_command_args:446 | Building command arguments...
+2025-12-26 15:11:11 | DEBUG    | aievaluation | build_command_args:451 |   Added --model: ALBERT-XXLarge
+2025-12-26 15:11:11 | DEBUG    | aievaluation | build_command_args:459 |   Added --evaluation-goals: Multi-Turn & Conversational Reliability
+2025-12-26 15:11:11 | DEBUG    | aievaluation | build_command_args:467 |   Added --metrics: all
+2025-12-26 15:11:11 | DEBUG    | aievaluation | build_command_args:474 | Final args list: ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'Multi-Turn & Conversational Reliability', '--metrics', 'all']
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:259 | ==================================================
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:260 | COMMAND ARGUMENTS BUILT
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:261 | ==================================================
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:263 |   arg[0]: --model
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:263 |   arg[1]: ALBERT-XXLarge
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:263 |   arg[2]: --evaluation-goals
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:263 |   arg[3]: Multi-Turn & Conversational Reliability
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:263 |   arg[4]: --metrics
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:263 |   arg[5]: all
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:264 |   Full command: python evaluate.py --model ALBERT-XXLarge --evaluation-goals Multi-Turn & Conversational Reliability --metrics all
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:295 | Evaluation request saved to: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts/fb50aea4f8ed4adb8bdd48b707a33cc5/evaluation_request.json
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:298 | ==================================================
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:299 | EXECUTING EVALUATION
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:300 | ==================================================
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:490 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Starting evaluation execution
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:491 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Model: ALBERT-XXLarge
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:492 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Evaluation Goals: ['Multi-Turn & Conversational Reliability']
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:493 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Metrics: all
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:494 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Config File: None
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:535 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Building API payload for FastAPI backend
+2025-12-26 15:11:11 | DEBUG    | aievaluation | execute_evaluation:566 | [fb50aea4f8ed4adb8bdd48b707a33cc5] API Payload: {
+  "evaluation_object": "ALBERT-XXLarge",
+  "use_case": "Multi-Turn & Conversational Reliability",
+  "context": {
+    "deployment_stage": "dev",
+    "risk_class": "low",
+    "user_impact": "internal"
+  },
+  "run": {
+    "mode": "one_off",
+    "environment": "local"
+  },
+  "metrics": [
+    {
+      "metric_id": "rag.answer_relevancy",
+      "threshold": 0.7,
+      "init_params": {}
+    }
+  ],
+  "test_cases": [
+    {
+      "input": "Test input",
+      "actual_output": "Test output",
+      "retrieval_context": [
+        "Test context"
+      ]
+    }
+  ]
+}
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:591 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Evaluation result saved to: /Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts/fb50aea4f8ed4adb8bdd48b707a33cc5/evaluation_result.json
+2025-12-26 15:11:11 | INFO     | aievaluation | execute_evaluation:592 | [fb50aea4f8ed4adb8bdd48b707a33cc5] Evaluation execution complete
+2025-12-26 15:11:11 | INFO     | aievaluation | run_evaluation:311 | Evaluation completed with status: completed
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:142 | [e2c03cd1] Response Status: 200
+2025-12-26 15:11:11 | DEBUG    | aievaluation | wrapper:143 | [e2c03cd1] Response Data: {'artifacts_path': '/Users/aruneeshsalhotra/mysw/aievaluation/backend/artifacts/fb50aea4f8ed4adb8bdd48b707a33cc5', 'command_args': ['--model', 'ALBERT-XXLarge', '--evaluation-goals', 'Multi-Turn & Conversational Reliability', '--metrics', 'all'], 'log_file': '/Users/aruneeshsalhotra/mysw/aievaluation/backend/logs/flask_api.log', 'message': "Evaluation initiated for model 'ALBERT-XXLarge'", 'parameters': {'evaluation_goals': ['Multi-Turn & Conversational Reliability'], 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'testingconfig_file': None}, 'result': {'api_payload_preview': {'context': {'deployment_stage': 'dev', 'risk_class': 'low', 'user_impact': 'internal'}, 'evaluation_object': 'ALBERT-XXLarge', 'metrics': [{'init_params': {}, 'metric_id': 'rag.answer_relevancy', 'threshold': 0.7}], 'run': {'environment': 'local', 'mode': 'one_off'}, 'test_cases': [{'actual_output': 'Test output', 'input': 'Test input', 'retrieval_context': ['Test context']}], 'use_case': 'Multi-Turn & Conversational Reliability'}, 'command_preview': 'python evaluate.py --model ALBERT-XXLarge --evaluation-goals Multi-Turn & Conversational Reliability --metrics all', 'evaluation_goals': ['Multi-Turn & Conversational Reliability'], 'executed_at': '2025-12-26T20:11:11.239760', 'integration_note': 'Ready to integrate with FastAPI backend on port 8000', 'message': 'Evaluation parameters validated and logged. Ready for execution.', 'metrics': 'all', 'model': 'ALBERT-XXLarge', 'run_id': 'fb50aea4f8ed4adb8bdd48b707a33cc5', 'status': 'completed', 'testingconfig_file': None}, 'run_id': 'fb50aea4f8ed4adb8bdd48b707a33cc5', 'status': 'completed'}
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:144 | [e2c03cd1] === REQUEST COMPLETE ===
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:120 | [736cc4fd] === INCOMING REQUEST ===
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:121 | [736cc4fd] Endpoint: GET /v1/aievaluation/list
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:122 | [736cc4fd] Remote IP: 127.0.0.1
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:123 | [736cc4fd] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+2025-12-26 15:11:11 | INFO     | aievaluation | list_evaluations:381 | Listing all evaluation runs
+2025-12-26 15:11:11 | INFO     | aievaluation | list_evaluations:401 | Found 2 evaluation runs
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:142 | [736cc4fd] Response Status: 200
+2025-12-26 15:11:11 | DEBUG    | aievaluation | wrapper:143 | [736cc4fd] Response Data: {'runs': [{'model': 'ALBERT-XXLarge', 'run_id': 'fb50aea4f8ed4adb8bdd48b707a33cc5', 'started_at': '2025-12-26T20:11:11.236402', 'status': 'initiated'}, {'model': 'ALBERT-XXLarge', 'run_id': 'b3d4ec7761b141019e06b5924fb7d97e', 'started_at': '2025-12-26T20:10:41.347939', 'status': 'initiated'}], 'total': 2}
+2025-12-26 15:11:11 | INFO     | aievaluation | wrapper:144 | [736cc4fd] === REQUEST COMPLETE ===

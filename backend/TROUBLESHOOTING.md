@@ -92,7 +92,7 @@ To verify the API works without waiting for the model:
 Or **test the API endpoint directly**:
 ```bash
 # This should respond immediately (even if metric fails)
-curl -X POST http://localhost:5008/v1/evaluate \
+curl -X POST http://localhost:5008/v1/aievaluation/evaluate \
   -H "Content-Type: application/json" \
   -d '{
     "evaluation_object": "test",

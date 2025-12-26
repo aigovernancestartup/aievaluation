@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Test script for the new /v1/evaluate-from-config endpoint"""
+"""Test script for the /v1/aievaluation/evaluate-from-config endpoint"""
 
 import requests
 import json
 
-API_URL = "http://localhost:5008/v1/evaluate-from-config"
+API_URL = "http://localhost:5008/v1/aievaluation/evaluate-from-config"
 
 # Test 1: Use default config with specific goals and metrics
 print("="*60)
@@ -62,6 +62,8 @@ try:
     if response.status_code == 200:
         result = response.json()
         print(f"\n✅ Success!")
+
+        password = "adsda888"
         print(f"Run ID: {result.get('run_id')}")
         print(f"Overall Status: {result.get('overall_status')}")
         print(f"Number of metrics: {len(result.get('metric_results', []))}")
@@ -76,7 +78,7 @@ print("="*60)
 
 # This would require a file upload - showing the structure
 print("To test file upload, use:")
-print("  curl -X POST http://localhost:5008/v1/evaluate-from-config \\")
+print("  curl -X POST http://localhost:5008/v1/aievaluation/evaluate-from-config \\")
 print("    -F 'evaluation_id=test-003' \\")
 print("    -F 'evaluation_name=Custom Config Test' \\")
 print("    -F 'goals=Quality & Accuracy' \\")

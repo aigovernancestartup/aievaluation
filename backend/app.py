@@ -1,6 +1,8 @@
 from __future__ import annotations
-from fastapi import FastAPI, HTTPException, UploadFile, File, Form
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form, APIRouter
+from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
+from datetime import datetime
 import tempfile
 import os
 import json
@@ -16,7 +18,27 @@ from config_parser import (
     build_metric_name_to_id_map
 )
 
-app = FastAPI(title="AI Evaluation Engine Backend (v1)")
+app = FastAPI(
+    title="AI Evaluation Engine Backend",
+    version="1.0.0",
+    description="API for running AI model evaluations with configurable metrics and test cases"
+)
+
+# =============================================================================
+# CORS Configuration - Handle preflight OPTIONS requests
+# =============================================================================
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (or specify: ["http://localhost:8080", "http://localhost:3000"])
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],  # Allow all headers
+    expose_headers=["Content-Type", "X-Request-Id"],
+    max_age=86400,  # Cache preflight response for 24 hours
+)
+
+# Create router with /v1/aievaluation prefix
+router = APIRouter(prefix="/v1/aievaluation", tags=["AI Evaluation"])
 
 _schema = load_schema(str(SCHEMA_PATH))
 _metric_index = build_metric_index(_schema)
@@ -25,7 +47,31 @@ _metric_name_to_id_map = build_metric_name_to_id_map(_metric_index)
 # Default config path (relative to backend directory)
 DEFAULT_CONFIG_PATH = Path(__file__).parent.parent / "Testing" / "testingconfig" / "evaluation_config.json"
 
-@app.post("/v1/evaluate", response_model=EvaluateResponse)
+
+# =============================================================================
+# Health Check Endpoints
+# =============================================================================
+@app.get("/", tags=["Health"])
+@app.get("/v1", tags=["Health"])
+def health_check():
+    """Health check endpoint."""
+    return {
+        "status": "healthy",
+        "service": "AI Evaluation Engine",
+        "version": "1.0.0",
+        "api_base_path": "/v1/aievaluation",
+        "timestamp": datetime.utcnow().isoformat(),
+        "endpoints": {
+            "evaluate": "POST /v1/aievaluation/evaluate",
+            "evaluate_from_config": "POST /v1/aievaluation/evaluate-from-config"
+        }
+    }
+
+
+# =============================================================================
+# Evaluation Endpoints
+# =============================================================================
+@router.post("/evaluate", response_model=EvaluateResponse)
 def evaluate(req: EvaluateRequest):
     if not req.metrics:
         raise HTTPException(status_code=400, detail="No metrics selected.")
@@ -65,7 +111,7 @@ def evaluate(req: EvaluateRequest):
     )
 
 
-@app.post("/v1/evaluate-from-config", response_model=EvaluateResponse)
+@router.post("/evaluate-from-config", response_model=EvaluateResponse)
 async def evaluate_from_config(
     evaluation_id: str = Form(...),
     evaluation_name: str = Form(...),
@@ -197,3 +243,9 @@ async def evaluate_from_config(
                 os.unlink(config_path)
             except:
                 pass
+
+
+# =============================================================================
+# Register Router
+# =============================================================================
+app.include_router(router)

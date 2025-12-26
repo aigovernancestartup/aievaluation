@@ -4,7 +4,7 @@
 import requests
 import json
 
-API_URL = "http://localhost:5008/v1/evaluate"
+API_URL = "http://localhost:5008/v1/aievaluation/evaluate"
 
 # Test with a metric that doesn't require LLM (if available)
 # Or test with a simpler payload to verify API works

@@ -18,7 +18,7 @@ Go to `http://localhost:5008/docs` and use the interactive API tester
 
 ### View with curl:
 ```bash
-curl -X POST http://localhost:5008/v1/evaluate \
+curl -X POST http://localhost:5008/v1/aievaluation/evaluate \
   -H "Content-Type: application/json" \
   -d @your_payload.json | jq
 ```
